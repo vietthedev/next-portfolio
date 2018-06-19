@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": ".server/"
+  },
+  "exclude": [],
+  "extends": "./tsconfig.json",
+  "include": ["server/**/*.ts"]
+}
