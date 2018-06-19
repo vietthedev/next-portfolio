@@ -1,7 +1,6 @@
 sudo: required
 
-language: node_js
-node_js: alpine
+language: generic
 
 services:
   - docker
