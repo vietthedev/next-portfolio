@@ -47,7 +47,7 @@
   "scripts": {
     "start": "npm run serve",
     "build": "npm run build-next && npm run build-server",
-    "serve": "node .server/index.js",
+    "serve": "cross-env NODE_ENV=production node .server/index.js",
     "watch": "concurrently -k \"tsc -w -p tsconfig.server.json\" \"nodemon .server/index.js\"",
     "build-next": "next build",
     "build-server": "tsc -p tsconfig.server.json",

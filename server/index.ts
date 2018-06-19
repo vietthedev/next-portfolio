@@ -11,7 +11,6 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 const port = parseInt(process.env.PORT, 10) || 3000;
-const host = "0.0.0.0";
 
 app
   .prepare()
@@ -25,7 +24,7 @@ app
       return handle(req, res);
     });
 
-    server.listen(port, host, (err: Error) => {
+    server.listen(port, (err: Error) => {
       if (err) {
         throw err;
       }
