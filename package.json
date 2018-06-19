@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "My portfolio built with Next.js",
   "dependencies": {
+    "@zeit/next-typescript": "^1.1.0",
     "async": "^2.6.1",
     "body-parser": "^1.18.3",
     "compression": "^1.7.2",
@@ -36,7 +37,6 @@
     "@types/react": "^16.4.0",
     "@types/react-dom": "^16.0.6",
     "@types/styled-jsx": "^2.2.3",
-    "@zeit/next-typescript": "^1.1.0",
     "concurrently": "^3.5.1",
     "cross-env": "^5.2.0",
     "nodemon": "^1.17.5",
