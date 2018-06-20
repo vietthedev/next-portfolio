@@ -11,5 +11,5 @@ before_install:
   - docker run --detach --publish 3000:3000 salad/next-portfolio
 
 script:
-  - for i in {1..10}; do ping -c 1 -w 1 localhost &> /dev/null; if [ "$?" -eq 0 ]; then break; fi; done
+  - for i in {1..10}; do ping -c 1 -w 1 localhost &> /dev/null; if [ $? -eq 0 ]; then break; fi; sleep 1; done
   - curl --fail localhost:3000
