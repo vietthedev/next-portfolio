@@ -11,8 +11,7 @@ before_install:
   - docker run --detach --publish 3000:3000 salad/next-portfolio
 
 install:
-  - sudo apt-get update
-  - sudo apt-get install -y curl
+  - bash get_latest_curl.sh
 
 script:
   - curl --fail --retry 10 --retry-connrefused localhost:3000 &> /dev/null
