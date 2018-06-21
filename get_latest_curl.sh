@@ -21,4 +21,3 @@ sudo make install
 # Resolve any issues of C-level lib
 # location caches ("shared library cache")
 sudo ldconfig
-
