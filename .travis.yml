@@ -11,4 +11,4 @@ before_install:
   - docker run --detach --publish 3000:3000 salad/next-portfolio
 
 script:
-  - curl --fail --retry 10 --retry-delay 1 localhost:3000 &> /dev/null
+  - curl --fail --retry 10 localhost:3000 &> /dev/null
