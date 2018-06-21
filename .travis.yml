@@ -7,11 +7,11 @@ services:
 
 before_install:
   - cp .env.example .env
-  - docker build --tag salad/next-portfolio .
-  - docker run --detach --publish 3000:3000 salad/next-portfolio
 
 install:
+  - docker build --tag salad/next-portfolio .
   - bash get_latest_curl.sh
 
 script:
+  - docker run --detach --publish 3000:3000 salad/next-portfolio
   - curl --fail --retry 10 --retry-connrefused localhost:3000 &> /dev/null
