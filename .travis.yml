@@ -14,7 +14,7 @@ script:
   - |
     for i in {1..10} \
       do \
-        curl --fail localhost:3000 &> /dev/null \
+        curl --slient --fail localhost:3000 > /dev/null \
         if [ $? = 0 ] \
           then \
             echo 0 \
