@@ -10,8 +10,18 @@ before_install:
 
 install:
   - docker build --tag salad/next-portfolio .
-  - docker run --detach --publish 3000:3000 salad/next-portfolio
-  - sleep 5
 
 script:
-  - curl --fail localhost:3000 &> /dev/null
+  - docker run --detach --publish 3000:3000 salad/next-portfolio
+  - |
+    for i in {1..10}
+      do
+        curl --fail localhost:3000 &> /dev/null
+
+        if [ $? = 0 ]
+          then
+            break;
+          fi
+
+        sleep 1
+      done
