@@ -9,6 +9,7 @@ before_install:
   - cp .env.example .env
   - docker build --tag salad/next-portfolio .
   - docker run --detach --publish 3000:3000 salad/next-portfolio
+  - sudo apt-get upgrade -y curl
 
 script:
   - curl --fail --retry 10 --retry-connrefused localhost:3000 &> /dev/null
