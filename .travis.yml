@@ -11,14 +11,13 @@ before_install:
   - docker run --detach --publish 3000:3000 salad/next-portfolio
 
 script:
-  - for i in {1..10}
-      do
-        curl --slient --fail localhost:3000 &> /dev/null
-        if [ $? = 0 ]
-          then
-            echo 0
-            break
-          fi
-        sleep 1
-      done
-    echo 1
+  - for i in {1..10} \
+      do \
+        curl --slient --fail localhost:3000 &> /dev/null \
+        if [ $? = 0 ] \
+          then \
+            break \
+          fi \
+        sleep 1 \
+      done \
+    echo 1 \
