@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
     "module": "commonjs",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "outDir": ".server/"
   },
   "exclude": [],
