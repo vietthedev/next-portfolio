@@ -1,3 +1,4 @@
+import { MongoError } from "mongodb";
 import mongoose from "mongoose";
 
 class DataAccess {
@@ -14,7 +15,11 @@ class DataAccess {
       console.log("Connection to database is open.");
     });
 
-    this.mongooseInstance = mongoose.connect(process.env.MONGODB_URI);
+    this.mongooseInstance = mongoose.connect(
+      process.env.MONGODB_URI,
+      { user: process.env.MONGODB_USER, pass: process.env.MONGODB_PASS },
+      (err: MongoError) => console.error(err.message)
+    );
 
     return this.mongooseInstance;
   }
