@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
+import { Document } from "mongoose";
 
-export default interface IAboutModel extends mongoose.Document {
+export default interface IAboutModel extends Document {
   content: string;
 }

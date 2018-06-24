@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import { Schema } from "mongoose";
 
 import IAboutModel from "../../model/interfaces/IAboutModel";
 import DataAccess from "../DataAccess";
@@ -7,12 +7,15 @@ const { mongooseConnection } = DataAccess;
 
 class AboutSchema {
   static get schema() {
-    return new mongoose.Schema({
-      content: {
-        required: true,
-        type: String
-      }
-    });
+    return new Schema(
+      {
+        content: {
+          required: true,
+          type: String
+        }
+      },
+      { collection: "about" }
+    );
   }
 }
 

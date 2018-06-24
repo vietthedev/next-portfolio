@@ -1,9 +1,9 @@
-import express from "express";
+import { Router } from "express";
 import asyncHandler from "express-async-handler";
 
 import AboutController from "../../controllers/AboutController";
 
-const router = express.Router();
+const router = Router();
 
 export default class AboutRoutes {
   private aboutController: AboutController;
@@ -12,7 +12,7 @@ export default class AboutRoutes {
     this.aboutController = new AboutController();
   }
 
-  get routes(): express.Router {
+  get routes(): Router {
     const controller = this.aboutController;
 
     router.get("/about", asyncHandler(controller.find));
