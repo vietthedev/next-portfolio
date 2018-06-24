@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 import { MongoError } from "mongodb";
 import mongoose from "mongoose";
+
+dotenv.config();
 
 class DataAccess {
   public static mongooseInstance: any;
@@ -17,8 +20,7 @@ class DataAccess {
 
     this.mongooseInstance = mongoose.connect(
       process.env.MONGODB_URI,
-      { user: process.env.MONGODB_USER, pass: process.env.MONGODB_PASS },
-      (err: MongoError) => console.error(err.message)
+      { user: process.env.MONGODB_USER, pass: process.env.MONGODB_PASS }
     );
 
     return this.mongooseInstance;
