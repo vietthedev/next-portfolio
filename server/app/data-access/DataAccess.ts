@@ -1,14 +1,13 @@
 import dotenv from "dotenv";
-import { MongoError } from "mongodb";
 import mongoose from "mongoose";
 
 dotenv.config();
 
 class DataAccess {
-  public static mongooseInstance: any;
+  public static mongooseInstance: typeof mongoose;
   public static mongooseConnection: mongoose.Connection;
 
-  public static connect(): mongoose.Connection {
+  public static async connect(): Promise<typeof mongoose> {
     if (this.mongooseInstance) {
       return this.mongooseInstance;
     }
@@ -18,7 +17,7 @@ class DataAccess {
       console.log("Connection to database is open.");
     });
 
-    this.mongooseInstance = mongoose.connect(
+    this.mongooseInstance = await mongoose.connect(
       process.env.MONGODB_URI,
       { user: process.env.MONGODB_USER, pass: process.env.MONGODB_PASS }
     );
@@ -27,6 +26,6 @@ class DataAccess {
   }
 }
 
-DataAccess.connect();
+(async () => await DataAccess.connect())();
 
 export default DataAccess;
