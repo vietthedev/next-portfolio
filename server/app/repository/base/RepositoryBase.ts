@@ -11,6 +11,6 @@ export default class RepositoryBase<T extends mongoose.Document>
   }
 
   public async find(conditions?: any): Promise<T[]> {
-    return (await this.model.find(conditions || {}).exec()) as T[];
+    return await this.model.find(conditions || {}).exec();
   }
 }
