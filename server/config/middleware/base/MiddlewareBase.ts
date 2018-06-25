@@ -3,6 +3,7 @@ import compression from "compression";
 import express from "express";
 
 import RouteBase from "../../routes/base/RouteBase";
+import ErrorHandler from "../ErrorHandler";
 import ExpressSession from "../ExpressSession";
 import Lusca from "../Lusca";
 import MethodOverride from "../MethodOverride";
@@ -16,6 +17,10 @@ export default class MiddlewareBase {
     app.use(Lusca.configuration());
     app.use(MethodOverride.configuration());
     app.use(compression());
+
+    if (process.env.NODE_ENV !== "production") {
+      app.use(ErrorHandler.configuration());
+    }
 
     app.use(new RouteBase().routes);
 
