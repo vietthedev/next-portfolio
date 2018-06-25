@@ -1,4 +1,5 @@
 import bodyParser from "body-parser";
+import compression from "compression";
 import express from "express";
 
 import RouteBase from "../../routes/base/RouteBase";
@@ -14,6 +15,7 @@ export default class MiddlewareBase {
     app.use(ExpressSession.configuration());
     app.use(Lusca.configuration());
     app.use(MethodOverride.configuration());
+    app.use(compression());
 
     app.use(new RouteBase().routes);
 
