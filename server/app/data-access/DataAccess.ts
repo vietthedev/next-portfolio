@@ -16,6 +16,9 @@ class DataAccess {
     this.mongooseConnection.once("open", () => {
       console.log("Connection to database is open.");
     });
+    this.mongooseConnection.on("error", (err: Error) =>
+      console.error(`Database connection error occurred: ${err.message}`)
+    );
 
     this.mongooseInstance = await mongoose.connect(
       process.env.MONGODB_URI,
@@ -26,6 +29,6 @@ class DataAccess {
   }
 }
 
-(async () => await DataAccess.connect())();
+Promise.resolve(DataAccess.connect());
 
 export default DataAccess;
