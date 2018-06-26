@@ -1,7 +1,6 @@
 import { PureComponent } from "react";
 import { theme } from "../common/theme-context";
 
-import ThemedComponent from "../common/themed-component";
 import Layout from "../components/Layout";
 
 interface IAboutState {

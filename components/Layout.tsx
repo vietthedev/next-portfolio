@@ -1,4 +1,5 @@
 import { PureComponent, ReactNode } from "react";
+import { resolveScopedStyles } from "../common/utility";
 
 import { theme, ThemeContext } from "../common/theme-context";
 import Footer from "./Footer";
@@ -12,6 +13,35 @@ interface ILayoutState {
   theme: string;
   toggleTheme: () => void;
 }
+
+// Workaround to create scoped styles for Header and Footer
+const scope = resolveScopedStyles(
+  <div>
+    <style jsx>{`
+      header {
+        text-align: center;
+      }
+
+      footer {
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        right: 0;
+        text-align: center;
+      }
+
+      .light {
+        background-color: #efefef;
+        color: #1d2129;
+      }
+
+      .dark {
+        background-color: #2a2a2a;
+        color: #dfdfdf;
+      }
+    `}</style>
+  </div>
+);
 
 export default class Layout extends PureComponent {
   public props: ILayoutProps;
@@ -27,9 +57,10 @@ export default class Layout extends PureComponent {
     return (
       <ThemeContext.Provider value={this.state}>
         <div className={this.state.theme}>
-          <Header />
+          <Header className={`${this.state.theme} ${scope.className}`} />
           {this.props.children}
-          <Footer />
+          <Footer className={`${this.state.theme} ${scope.className}`} />
+          {scope.styles}
         </div>
         <style jsx>{`
           .light {
