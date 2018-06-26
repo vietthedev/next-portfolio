@@ -16,7 +16,7 @@
     "removeComments": false,
     "skipLibCheck": true,
     "sourceMap": true,
-    "target": "esnext"
+    "target": "es2015"
   },
   "exclude": ["server/**/*.ts"]
 }
