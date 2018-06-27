@@ -14,35 +14,6 @@ interface ILayoutState {
   toggleTheme: () => void;
 }
 
-// Workaround to create scoped styles for Header and Footer
-const scope = resolveScopedStyles(
-  <div>
-    <style jsx>{`
-      header {
-        text-align: center;
-      }
-
-      footer {
-        bottom: 0;
-        left: 0;
-        position: fixed;
-        right: 0;
-        text-align: center;
-      }
-
-      .light {
-        background-color: #efefef;
-        color: #1d2129;
-      }
-
-      .dark {
-        background-color: #2a2a2a;
-        color: #dfdfdf;
-      }
-    `}</style>
-  </div>
-);
-
 export default class Layout extends PureComponent {
   public props: ILayoutProps;
   public state: ILayoutState;
@@ -57,10 +28,9 @@ export default class Layout extends PureComponent {
     return (
       <ThemeContext.Provider value={this.state}>
         <div className={this.state.theme}>
-          <Header className={`${this.state.theme} ${scope.className}`} />
+          <Header />
           {this.props.children}
-          <Footer className={`${this.state.theme} ${scope.className}`} />
-          {scope.styles}
+          <Footer />
         </div>
         <style jsx>{`
           .light {
