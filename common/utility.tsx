@@ -1,7 +1,5 @@
-import { ReactNode } from "react";
-
 export function resolveScopedStyles(scope: {
-  props: { className: string; children: ReactNode };
+  props: { className: string; children: JSX.Element };
 }) {
   return {
     className: scope.props.className,
