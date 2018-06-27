@@ -1,5 +1,4 @@
 import { PureComponent, ReactNode } from "react";
-import { resolveScopedStyles } from "../common/utility";
 
 import { theme, ThemeContext } from "../common/theme-context";
 import Footer from "./Footer";
