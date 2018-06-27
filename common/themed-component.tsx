@@ -2,11 +2,11 @@ import { ReactNode } from "react";
 
 import { ThemeContext } from "./theme-context";
 
-interface IThemeProps {
+interface IThemedComponentProps {
   render: (themeName: string) => ReactNode;
 }
 
-export default (props: IThemeProps) => (
+export default (props: IThemedComponentProps) => (
   <ThemeContext.Consumer>
     {({ theme }) => props.render(theme)}
   </ThemeContext.Consumer>
