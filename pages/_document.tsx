@@ -20,7 +20,12 @@ export default class CustomDocument extends Document {
             content="initial-scale=1.0, width=device-width"
           />
           <style>{`
+            * {
+              box-sizing: border-box;
+            }
+
             body {
+              font-family: Monaco, Consolas, Courier New, monospace;
               margin: 0;
               padding: 0;
             }

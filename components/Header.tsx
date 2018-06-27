@@ -5,16 +5,26 @@ const scoped = resolveScopedStyles(
   <div>
     <style jsx>{`
       header {
-        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding-top: 0.25rem;
+      }
+
+      img {
+        width: 12rem;
+
+        border: 6px double #666666;
+        border-radius: 50%;
+        background-clip: padding-box;
       }
 
       .light {
-        background-color: #efefef;
         color: #1d2129;
       }
 
       .dark {
-        background-color: #2a2a2a;
         color: #dfdfdf;
       }
     `}</style>
@@ -26,8 +36,11 @@ export default () => (
     render={themeName => (
       <>
         <header className={`${scoped.className} ${themeName}`}>
-          (&#x261E;&#xFF9F;&#x30EE;&#xFF9F;)&#x261E; Header
-          &#x261C;(&#xFF9F;&#x30EE;&#xFF9F;&#x261C;)
+          <img
+            className={scoped.className}
+            src="/static/img/portfolio.png"
+            alt="Việt Huỳnh"
+          />
         </header>
         {scoped.styles}
       </>
