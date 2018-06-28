@@ -1,8 +1,10 @@
 import { PureComponent, ReactNode } from "react";
 
-import { theme, ThemeContext } from "../common/theme-context";
+import Context, { theme } from "../common/context";
+import Content from "./Content";
 import Footer from "./Footer";
 import Header from "./Header";
+import NavBar from "./NavBar";
 
 interface ILayoutProps {
   children: ReactNode;
@@ -25,10 +27,11 @@ export default class Layout extends PureComponent {
 
   public render() {
     return (
-      <ThemeContext.Provider value={this.state}>
+      <Context.Provider value={this.state}>
         <div className={this.state.theme}>
           <Header />
-          {this.props.children}
+          <NavBar />
+          <Content>{this.props.children}</Content>
           <Footer />
         </div>
         <style jsx>{`
@@ -42,7 +45,7 @@ export default class Layout extends PureComponent {
             color: #dfdfdf;
           }
         `}</style>
-      </ThemeContext.Provider>
+      </Context.Provider>
     );
   }
 

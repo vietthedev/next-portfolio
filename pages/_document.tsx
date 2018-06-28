@@ -5,16 +5,24 @@ import Document, {
   NextScript
 } from "next/document";
 
+interface ICustomDocumentProps {
+  host: string;
+}
+
 export default class CustomDocument extends Document {
   public static async getInitialProps(ctx: NextDocumentContext) {
+    const host = `https://${ctx.req.headers.host}`;
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+
+    return { host, ...initialProps };
   }
+
+  public props: ICustomDocumentProps;
 
   public render() {
     return (
       <html>
-        <Head>
+        <Head prefix="og: http://ogp.me/ns# profile: http://opg.me/ns/profile#">
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -48,6 +56,46 @@ export default class CustomDocument extends Document {
           <meta
             name="viewport"
             content="initial-scale=1.0, width=device-width"
+          />
+          <meta property="og:title" content="Việt Huỳnh - Software Developer" />
+          <meta
+            property="og:description"
+            content="This is Việt's portfolio. It includes some of his information, the personal work as well as the skills he possesses."
+          />
+          <meta
+            property="og:image"
+            content={`${this.props.host}/static/img/profile_picture.png`}
+          />
+          <meta
+            property="og:image:secure_url"
+            content={`${this.props.host}/static/img/profile_picture.png`}
+          />
+          <meta property="og:image:type" content="image/png" />
+          <meta property="og:image:width" content="1900" />
+          <meta property="og:image:height" content="1200" />
+          <meta property="og:image:alt" content="Việt Huỳnh" />
+          <meta property="og:site_name" content="Việt Huỳnh's Portfolio" />
+          <meta property="og:type" content="profile" />
+          <meta property="og:locale" content="en_US" />
+          <meta property="profile:first_name" content="Việt" />
+          <meta property="profile:last_name" content="Huỳnh" />
+          <meta property="profile:username" content="Salad" />
+          <meta property="profile:gender" content="male" />
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:site" content="@S_a_l_a_d" />
+          <meta property="twitter:creator" content="@S_a_l_a_d" />
+          <meta
+            property="twitter:title"
+            content="Việt Huỳnh - Software Developer"
+          />
+          <meta
+            property="twitter:image"
+            content={`${this.props.host}/static/img/profile_picture.png`}
+          />
+          <meta property="twitter:image:alt" content="Việt Huỳnh" />
+          <meta
+            property="twitter:description"
+            content="This is Việt's portfolio. It includes some of his information, the personal work as well as the skills he possesses."
           />
           <style>{`
             * {

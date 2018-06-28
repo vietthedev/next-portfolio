@@ -38,7 +38,7 @@ export default () => (
         <header className={`${scoped.className} ${themeName}`}>
           <img
             className={scoped.className}
-            src="/static/img/portfolio.png"
+            src="/static/img/avatar.png"
             alt="Việt Huỳnh"
           />
         </header>
