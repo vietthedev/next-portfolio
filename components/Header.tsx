@@ -15,9 +15,17 @@ const scoped = resolveScopedStyles(
       img {
         width: 12rem;
 
-        border: 6px double #666666;
+        border: 6px double;
         border-radius: 50%;
         background-clip: padding-box;
+      }
+
+      img .light {
+        border-color: #666666;
+      }
+
+      img .dark {
+        border-color: #aaaaaa;
       }
 
       .light {

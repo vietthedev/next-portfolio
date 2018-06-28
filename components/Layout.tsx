@@ -5,6 +5,9 @@ import Content from "./Content";
 import Footer from "./Footer";
 import Header from "./Header";
 import NavBar from "./NavBar";
+import ThemeTogglerButton from "./ThemeTogglerButton";
+
+import { THEMES } from "../common/constants";
 
 interface ILayoutProps {
   children: ReactNode;
@@ -33,6 +36,7 @@ export default class Layout extends PureComponent {
           <NavBar />
           <Content>{this.props.children}</Content>
           <Footer />
+          <ThemeTogglerButton />
         </div>
         <style jsx>{`
           .light {
@@ -51,7 +55,7 @@ export default class Layout extends PureComponent {
 
   private toggleTheme() {
     this.setState((state: ILayoutState) => ({
-      theme: state.theme === "light" ? "dark" : "light"
+      theme: state.theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT
     }));
   }
 }
