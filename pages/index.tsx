@@ -2,7 +2,7 @@ import { NextContext } from "next";
 import Head from "next/head";
 import { PureComponent } from "react";
 
-import { getHost } from "../common/utility";
+import { getCanonicalUrl } from "../common/utility";
 import Layout from "../components/Layout";
 
 interface IIndexProps {
@@ -11,7 +11,7 @@ interface IIndexProps {
 
 export default class Index extends PureComponent {
   public static async getInitialProps(ctx: NextContext) {
-    return { canonicalUrl: getHost(ctx) };
+    return { canonicalUrl: getCanonicalUrl(ctx.pathname) };
   }
 
   public props: IIndexProps;

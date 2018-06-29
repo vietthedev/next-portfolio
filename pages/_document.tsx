@@ -5,19 +5,14 @@ import Document, {
   NextScript
 } from "next/document";
 
-interface ICustomDocumentProps {
-  host: string;
-}
+import { HOST } from "../common/constants";
 
 export default class CustomDocument extends Document {
   public static async getInitialProps(ctx: NextDocumentContext) {
-    const host = `https://${ctx.req.headers.host}`;
     const initialProps = await Document.getInitialProps(ctx);
 
-    return { host, ...initialProps };
+    return { ...initialProps };
   }
-
-  public props: ICustomDocumentProps;
 
   public render() {
     return (
@@ -64,11 +59,11 @@ export default class CustomDocument extends Document {
           />
           <meta
             property="og:image"
-            content={`${this.props.host}/static/img/profile_picture.png`}
+            content={`${HOST}/static/img/profile_picture.png`}
           />
           <meta
             property="og:image:secure_url"
-            content={`${this.props.host}/static/img/profile_picture.png`}
+            content={`${HOST}/static/img/profile_picture.png`}
           />
           <meta property="og:image:type" content="image/png" />
           <meta property="og:image:width" content="1900" />

@@ -1,4 +1,4 @@
-import { IncomingMessage } from "http";
+import { HOST } from "./constants";
 
 export const resolveScopedStyles = (scope: {
   props: { className: string; children: JSX.Element };
@@ -9,12 +9,6 @@ export const resolveScopedStyles = (scope: {
   };
 };
 
-export const getHost = ({
-  req,
-  pathname
-}: {
-  req?: IncomingMessage;
-  pathname: string;
-}) => {
-  return `https://${req.headers.host + pathname}`;
+export const getCanonicalUrl = (pathname: string) => {
+  return HOST + pathname;
 };
