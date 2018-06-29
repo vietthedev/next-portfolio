@@ -3,8 +3,5 @@ import { createContext } from "react";
 import { DEFAULT_THEME } from "./constants";
 
 export default createContext({
-  theme: DEFAULT_THEME,
-  toggleTheme: () => {
-    // Implemented in Layout component
-  }
+  theme: DEFAULT_THEME
 });

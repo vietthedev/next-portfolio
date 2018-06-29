@@ -3,6 +3,10 @@ import Context from "../common/context";
 import { THEMES } from "../common/constants";
 import { resolveScopedStyles } from "../common/helpers";
 
+interface IThemeTogglerButtonProps {
+  toggleTheme: () => void;
+}
+
 const scoped = resolveScopedStyles(
   <div>
     <style jsx>{`
@@ -17,13 +21,13 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default () => (
+export default (props: IThemeTogglerButtonProps) => (
   <Context.Consumer>
-    {({ theme, toggleTheme }) => (
+    {({ theme }) => (
       <>
         <button
           className={`${scoped.className} ${theme}`}
-          onClick={toggleTheme}
+          onClick={props.toggleTheme}
         >
           {theme === THEMES.LIGHT ? "Dark Mode" : "Light Mode"}
         </button>

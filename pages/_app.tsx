@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import { NextContext, NextStatelessComponent } from "next";
 import App, { AppComponentProps, Container } from "next/app";
 import Head from "next/head";
@@ -17,7 +18,6 @@ interface ICustomAppProps {
 
 interface ICustomAppState {
   theme: string;
-  toggleTheme: () => void;
 }
 
 interface ICustomIncomingMessage extends IncomingMessage {
@@ -42,7 +42,9 @@ export default class CustomApp extends App {
 
     return {
       pageProps,
-      theme: (ctx.req as ICustomIncomingMessage).cookies.theme
+      theme: ctx.req
+        ? (ctx.req as ICustomIncomingMessage).cookies.theme
+        : DEFAULT_THEME
     };
   }
 
@@ -53,9 +55,16 @@ export default class CustomApp extends App {
     super(props);
 
     this.state = {
-      theme: this.props.theme || DEFAULT_THEME,
-      toggleTheme: this.toggleTheme.bind(this)
+      theme: DEFAULT_THEME
     };
+
+    this.toggleTheme = this.toggleTheme.bind(this);
+  }
+
+  public componentDidMount() {
+    if (this.props.theme !== this.state.theme) {
+      this.setState({ theme: this.props.theme });
+    }
   }
 
   public render() {
@@ -70,15 +79,19 @@ export default class CustomApp extends App {
           <Layout>
             <Component {...pageProps} />
           </Layout>
-          <ThemeTogglerButton />
+          <ThemeTogglerButton toggleTheme={this.toggleTheme} />
         </Context.Provider>
       </Container>
     );
   }
 
   private toggleTheme() {
-    this.setState((state: ICustomAppState) => ({
-      theme: state.theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT
-    }));
+    this.setState((state: ICustomAppState) => {
+      const theme = state.theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT;
+
+      Cookies.set("theme", theme, { expires: 365 });
+
+      return { theme };
+    });
   }
 }
