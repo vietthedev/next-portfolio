@@ -1,5 +1,3 @@
-import Context from "../common/context";
-
 import { THEMES } from "../common/constants";
 import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
