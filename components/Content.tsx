@@ -14,6 +14,8 @@ const scoped = resolveScopedStyles(
         flex: 1 0 auto;
 
         padding: 0.25rem 0.25rem 0 0.25rem;
+
+        transition: all 0.2s ease-in-out;
       }
 
       .light {

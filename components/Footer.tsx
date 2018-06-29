@@ -14,6 +14,8 @@ const scoped = resolveScopedStyles(
         padding: 1.5rem 0;
         right: 0;
         text-align: center;
+
+        transition: all 0.2s ease-in-out;
       }
 
       .light {

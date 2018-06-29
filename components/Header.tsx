@@ -18,6 +18,8 @@ const scoped = resolveScopedStyles(
         border: 6px double;
         border-radius: 50%;
         background-clip: padding-box;
+
+        transition: border-color 0.2s ease-in-out;
       }
 
       img .light {

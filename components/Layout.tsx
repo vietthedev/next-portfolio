@@ -19,6 +19,8 @@ const scoped = resolveScopedStyles(
         flex-direction: column;
 
         height: 100%;
+
+        transition: all 0.2s ease-in-out;
       }
 
       .light {
