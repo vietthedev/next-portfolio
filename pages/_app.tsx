@@ -40,11 +40,11 @@ export default class CustomApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
+    const req = ctx.req as ICustomIncomingMessage;
+
     return {
       pageProps,
-      theme: ctx.req
-        ? (ctx.req as ICustomIncomingMessage).cookies.theme
-        : DEFAULT_THEME
+      theme: ctx.req && req.cookies.theme ? req.cookies.theme : DEFAULT_THEME
     };
   }
 
@@ -55,16 +55,10 @@ export default class CustomApp extends App {
     super(props);
 
     this.state = {
-      theme: DEFAULT_THEME
+      theme: props.theme
     };
 
     this.toggleTheme = this.toggleTheme.bind(this);
-  }
-
-  public componentDidMount() {
-    if (this.props.theme !== this.state.theme) {
-      this.setState({ theme: this.props.theme });
-    }
   }
 
   public render() {
