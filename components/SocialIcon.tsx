@@ -1,8 +1,8 @@
 import ReactSVG from "react-svg";
 
 import { PureComponent } from "react";
+import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
-import { resolveScopedStyles } from "../common/utility";
 
 interface ISocialIconProps {
   link: string;

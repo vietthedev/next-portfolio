@@ -39,6 +39,13 @@ export default class Layout extends PureComponent {
           <ThemeTogglerButton />
         </div>
         <style jsx>{`
+          div {
+            display: flex;
+            flex-direction: column;
+
+            height: 100%;
+          }
+
           .light {
             background-color: #ffffff;
             color: #1d2129;

@@ -1,5 +1,5 @@
+import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
-import { resolveScopedStyles } from "../common/utility";
 
 import Social from "./Social";
 
@@ -7,10 +7,11 @@ const scoped = resolveScopedStyles(
   <div>
     <style jsx>{`
       footer {
+        flex-shrink: 0;
+
         bottom: 0;
         left: 0;
         padding: 1.5rem 0;
-        position: fixed;
         right: 0;
         text-align: center;
       }

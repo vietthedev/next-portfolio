@@ -2,7 +2,7 @@ import { NextContext } from "next";
 import Head from "next/head";
 import { PureComponent } from "react";
 
-import { getCanonicalUrl } from "../common/utility";
+import { getCanonicalUrl } from "../common/helpers";
 
 interface IIndexProps {
   canonicalUrl: string;

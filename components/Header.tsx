@@ -1,5 +1,5 @@
+import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
-import { resolveScopedStyles } from "../common/utility";
 
 const scoped = resolveScopedStyles(
   <div>

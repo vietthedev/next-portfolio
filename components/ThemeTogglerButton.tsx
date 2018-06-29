@@ -1,7 +1,7 @@
 import Context from "../common/context";
 
 import { THEMES } from "../common/constants";
-import { resolveScopedStyles } from "../common/utility";
+import { resolveScopedStyles } from "../common/helpers";
 
 const scoped = resolveScopedStyles(
   <div>
@@ -9,7 +9,7 @@ const scoped = resolveScopedStyles(
       button {
         cursor: pointer;
 
-        position: absolute;
+        position: fixed;
         right: 0.25rem;
         bottom: 0.25rem;
       }

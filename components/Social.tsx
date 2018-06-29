@@ -1,4 +1,4 @@
-import { resolveScopedStyles } from "../common/utility";
+import { resolveScopedStyles } from "../common/helpers";
 import SocialIcon from "./SocialIcon";
 
 const scoped = resolveScopedStyles(

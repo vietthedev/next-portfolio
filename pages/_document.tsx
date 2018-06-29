@@ -94,10 +94,18 @@ export default class CustomDocument extends Document {
               box-sizing: border-box;
             }
 
+            html, body {
+              height: 100%;
+            }
+
             body {
               font-family: Monaco, Consolas, Courier New, monospace;
               margin: 0;
               padding: 0;
+            }
+
+            #__next {
+              height: 100%;
             }
             `}</style>
         </Head>
