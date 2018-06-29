@@ -17,7 +17,7 @@ export default class CustomDocument extends Document {
   public render() {
     return (
       <html>
-        <Head prefix="og: http://ogp.me/ns# profile: http://opg.me/ns/profile#">
+        <Head prefix="og: http://ogp.me/ns# profile: http://ogp.me/ns/profile#">
           <link
             rel="apple-touch-icon"
             sizes="180x180"
