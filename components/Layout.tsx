@@ -1,13 +1,13 @@
 import { PureComponent, ReactNode } from "react";
 
-import Context, { theme } from "../common/context";
+import Context from "../common/context";
 import Content from "./Content";
 import Footer from "./Footer";
 import Header from "./Header";
 import NavBar from "./NavBar";
 import ThemeTogglerButton from "./ThemeTogglerButton";
 
-import { THEMES } from "../common/constants";
+import { DEFAULT_THEME, THEMES } from "../common/constants";
 
 interface ILayoutProps {
   children: ReactNode;
@@ -25,7 +25,10 @@ export default class Layout extends PureComponent {
   constructor(props: ILayoutProps) {
     super(props);
 
-    this.state = { theme, toggleTheme: this.toggleTheme.bind(this) };
+    this.state = {
+      theme: DEFAULT_THEME,
+      toggleTheme: this.toggleTheme.bind(this)
+    };
   }
 
   public render() {
