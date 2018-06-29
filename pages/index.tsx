@@ -3,7 +3,6 @@ import Head from "next/head";
 import { PureComponent } from "react";
 
 import { getCanonicalUrl } from "../common/utility";
-import Layout from "../components/Layout";
 
 interface IIndexProps {
   canonicalUrl: string;
@@ -27,7 +26,7 @@ export default class Index extends PureComponent {
           <link rel="canonical" href={this.props.canonicalUrl} />
           <meta property="og:url" content={this.props.canonicalUrl} />
         </Head>
-        <Layout>About</Layout>
+        <p>About</p>
       </>
     );
   }

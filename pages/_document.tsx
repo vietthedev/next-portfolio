@@ -5,7 +5,7 @@ import Document, {
   NextScript
 } from "next/document";
 
-import { HOST } from "../common/constants";
+import { HOST, SITE_TITLE } from "../common/constants";
 
 export default class CustomDocument extends Document {
   public static async getInitialProps(ctx: NextDocumentContext) {
@@ -52,7 +52,7 @@ export default class CustomDocument extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
-          <meta property="og:title" content="Việt Huỳnh - Software Developer" />
+          <meta property="og:title" content={SITE_TITLE} />
           <meta
             property="og:description"
             content="This is Việt's portfolio. It includes some of his information, the personal work as well as the skills he possesses."
@@ -79,13 +79,10 @@ export default class CustomDocument extends Document {
           <meta property="twitter:card" content="summary_large_image" />
           <meta property="twitter:site" content="@S_a_l_a_d" />
           <meta property="twitter:creator" content="@S_a_l_a_d" />
-          <meta
-            property="twitter:title"
-            content="Việt Huỳnh - Software Developer"
-          />
+          <meta property="twitter:title" content={SITE_TITLE} />
           <meta
             property="twitter:image"
-            content={`${this.props.host}/static/img/profile_picture.png`}
+            content={`${HOST}/static/img/profile_picture.png`}
           />
           <meta property="twitter:image:alt" content="Việt Huỳnh" />
           <meta
@@ -103,7 +100,6 @@ export default class CustomDocument extends Document {
               padding: 0;
             }
             `}</style>
-          <title>Việt Huỳnh - Software Developer</title>
         </Head>
         <body>
           <Main />
