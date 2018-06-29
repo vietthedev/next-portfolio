@@ -1,3 +1,4 @@
+import { IncomingMessage } from "http";
 import Cookies from "js-cookie";
 import { NextContext, NextStatelessComponent } from "next";
 import App, { AppComponentProps, Container } from "next/app";
@@ -7,7 +8,6 @@ import React from "react";
 import { SITE_TITLE } from "../common/constants";
 import { DEFAULT_THEME, THEMES } from "../common/constants";
 
-import { IncomingMessage } from "http";
 import Context from "../common/context";
 import Layout from "../components/Layout";
 import ThemeTogglerButton from "../components/ThemeTogglerButton";
