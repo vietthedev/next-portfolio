@@ -1,5 +1,6 @@
 import bodyParser from "body-parser";
 import compression from "compression";
+import cookieParser from "cookie-parser";
 import express from "express";
 
 import RouteBase from "../../routes/base/RouteBase";
@@ -17,6 +18,7 @@ export default class MiddlewareBase {
     app.use(Lusca.configuration());
     app.use(MethodOverride.configuration());
     app.use(compression());
+    app.use(cookieParser());
 
     if (process.env.NODE_ENV !== "production") {
       app.use(ErrorHandler.configuration());

@@ -1,71 +1,51 @@
-import { PureComponent, ReactNode } from "react";
+import { ReactNode } from "react";
 
-import Context from "../common/context";
+import { resolveScopedStyles } from "../common/helpers";
+import ThemedComponent from "../common/themed-component";
 import Content from "./Content";
 import Footer from "./Footer";
 import Header from "./Header";
 import NavBar from "./NavBar";
-import ThemeTogglerButton from "./ThemeTogglerButton";
-
-import { DEFAULT_THEME, THEMES } from "../common/constants";
 
 interface ILayoutProps {
   children: ReactNode;
 }
 
-interface ILayoutState {
-  theme: string;
-  toggleTheme: () => void;
-}
+const scoped = resolveScopedStyles(
+  <div>
+    <style jsx>{`
+      div {
+        display: flex;
+        flex-direction: column;
 
-export default class Layout extends PureComponent {
-  public props: ILayoutProps;
-  public state: ILayoutState;
+        height: 100%;
+      }
 
-  constructor(props: ILayoutProps) {
-    super(props);
+      .light {
+        background-color: #ffffff;
+        color: #1d2129;
+      }
 
-    this.state = {
-      theme: DEFAULT_THEME,
-      toggleTheme: this.toggleTheme.bind(this)
-    };
-  }
+      .dark {
+        background-color: #373737;
+        color: #dfdfdf;
+      }
+    `}</style>
+  </div>
+);
 
-  public render() {
-    return (
-      <Context.Provider value={this.state}>
-        <div className={this.state.theme}>
+export default (props: ILayoutProps) => (
+  <ThemedComponent
+    render={themeName => (
+      <>
+        <div className={`${scoped.className} ${themeName}`}>
           <Header />
           <NavBar />
-          <Content>{this.props.children}</Content>
+          <Content>{props.children}</Content>
           <Footer />
-          <ThemeTogglerButton />
         </div>
-        <style jsx>{`
-          div {
-            display: flex;
-            flex-direction: column;
-
-            height: 100%;
-          }
-
-          .light {
-            background-color: #ffffff;
-            color: #1d2129;
-          }
-
-          .dark {
-            background-color: #373737;
-            color: #dfdfdf;
-          }
-        `}</style>
-      </Context.Provider>
-    );
-  }
-
-  private toggleTheme() {
-    this.setState((state: ILayoutState) => ({
-      theme: state.theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT
-    }));
-  }
-}
+        {scoped.styles}
+      </>
+    )}
+  />
+);
