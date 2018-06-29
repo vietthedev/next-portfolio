@@ -22,7 +22,6 @@
     "@zeit/next-typescript": "^1.1.0",
     "body-parser": "^1.18.3",
     "compression": "^1.7.2",
-    "cross-env": "^5.2.0",
     "dotenv": "^6.0.0",
     "errorhandler": "^1.5.0",
     "express": "^4.16.3",
@@ -48,7 +47,7 @@
   "scripts": {
     "start": "npm run serve",
     "build": "npm run build-next && npm run build-server",
-    "serve": "cross-env NODE_ENV=production node .server/index.js",
+    "serve": "node .server/index.js",
     "watch": "concurrently -k \"tsc -w -p tsconfig.server.json\" \"nodemon .server/index.js\"",
     "build-next": "next build",
     "build-server": "tsc -p tsconfig.server.json",
