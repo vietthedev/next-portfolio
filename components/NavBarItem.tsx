@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { withRouter, WithRouterProps } from "next/router";
 import { ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
@@ -34,34 +35,38 @@ const scoped = resolveScopedStyles(
         background-color: #2aa4cf;
       }
 
+      a.active {
+        background-color: #2aa4cf;
+      }
+
       .light {
-        background: linear-gradient(
-          rgba(29, 33, 41, 1),
-          rgba(50, 50, 50, 1),
-          rgba(255, 255, 255, 0)
-        );
-        color: #dfdfdf;
+        background-color: #eeeeee;
+        color: #474747;
       }
 
       .dark {
-        background: linear-gradient(
-          rgba(223, 223, 223, 1),
-          rgba(150, 150, 150, 1),
-          rgba(55, 55, 55, 0.8)
-        );
-        color: #373737;
+        background-color: #474747;
+        color: #dfdfdf;
       }
     `}</style>
   </div>
 );
 
-export default (props: INavBarItemProps) => (
+const NavBarItem = (props: INavBarItemProps & WithRouterProps) => (
   <>
     <li className={scoped.className}>
       <Link href={props.href} prefetch>
-        <a className={`${scoped.className} ${props.theme}`}>{props.children}</a>
+        <a
+          className={`${scoped.className} ${props.theme} ${
+            props.router.pathname === props.href ? "active" : ""
+          }`}
+        >
+          {props.children}
+        </a>
       </Link>
     </li>
     {scoped.styles}
   </>
 );
+
+export default withRouter(NavBarItem);

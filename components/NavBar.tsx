@@ -14,7 +14,10 @@ const scoped = resolveScopedStyles(
         padding: 0.25rem 0.25rem 0 0.25rem;
 
         text-align: center;
-        text-transform: capitalize;
+      }
+
+      ul {
+        margin-bottom: 0;
       }
     `}</style>
   </div>
@@ -27,7 +30,7 @@ export default class NavBar extends PureComponent {
     return (
       <>
         <nav className={`${scoped.className} ${this.props.theme}`}>
-          <ul>
+          <ul className={scoped.className}>
             <NavBarItem theme={this.props.theme} href="/">
               About
             </NavBarItem>

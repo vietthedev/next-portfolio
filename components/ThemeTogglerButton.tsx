@@ -19,7 +19,7 @@ const scoped = resolveScopedStyles(
         bottom: 0.25rem;
 
         border-color: transparent;
-        border-radius: 5rem;
+        border-radius: 1rem;
 
         font-size: 1.25rem;
 

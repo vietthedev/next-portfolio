@@ -24,7 +24,7 @@ const scoped = resolveScopedStyles(
       }
 
       .light {
-        background-color: #efefef;
+        background-color: #cfcfcf;
         color: #1d2129;
       }
 

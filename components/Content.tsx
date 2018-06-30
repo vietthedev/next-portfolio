@@ -13,17 +13,22 @@ const scoped = resolveScopedStyles(
       main {
         flex: 1 0 auto;
 
-        padding: 0.25rem 0.25rem 0 0.25rem;
+        margin: 0 10% 0 10%;
+        padding: 0.25rem 1rem 1rem 1rem;
+
+        border-radius: 1rem 1rem 0 0;
 
         transition: all 0.2s ease-in-out;
       }
 
       .light {
-        background-color: #ffffff;
+        background-color: #eeeeee;
+        color: #474747;
       }
 
       .dark {
-        background-color: #373737;
+        background-color: #474747;
+        color: #dfdfdf;
       }
     `}</style>
   </div>
