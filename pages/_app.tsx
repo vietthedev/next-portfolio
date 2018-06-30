@@ -58,7 +58,6 @@ export default class CustomApp extends App {
     this.state = {
       theme: props.theme
     };
-    console.log(props.theme);
 
     this.toggleTheme = this.toggleTheme.bind(this);
   }
