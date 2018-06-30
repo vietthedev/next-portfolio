@@ -87,12 +87,13 @@ export default class CustomDocument extends Document {
           <meta property="twitter:image" content={SITE_IMAGE.URL} />
           <meta property="twitter:image:alt" content={SITE_IMAGE.ALT} />
           <meta property="twitter:description" content={SITE_DESCRIPTION} />
-          <style>{`
+          <style jsx global>{`
             * {
               box-sizing: border-box;
             }
 
-            html, body {
+            html,
+            body {
               height: 100%;
             }
 
@@ -105,7 +106,7 @@ export default class CustomDocument extends Document {
             #__next {
               height: 100%;
             }
-            `}</style>
+          `}</style>
         </Head>
         <body>
           <Main />
