@@ -23,7 +23,21 @@ const scoped = resolveScopedStyles(
 
         font-size: 1.25rem;
 
-        transition: background-color 0.2s ease-in-out;
+        opacity: 0.5;
+        transition: all 0.2s ease-in-out;
+      }
+
+      button:hover {
+        opacity: 1;
+
+        animation: bouncing 1.5s infinite;
+      }
+
+      button:active {
+        right: 0.1rem;
+        bottom: 0.1rem;
+
+        opacity: 1;
       }
 
       .light {
@@ -33,9 +47,6 @@ const scoped = resolveScopedStyles(
 
       .light:active {
         background-color: #475063;
-
-        right: 0.1rem;
-        bottom: 0.1rem;
       }
 
       .dark {
@@ -45,9 +56,22 @@ const scoped = resolveScopedStyles(
 
       .dark:active {
         background-color: #8d8d8d;
+      }
 
-        right: 0.1rem;
-        bottom: 0.1rem;
+      @keyframes bouncing {
+        8.33% {
+          bottom: 1rem;
+        }
+
+        24.99% {
+          bottom: 0.5rem;
+        }
+
+        16.66%,
+        33.32%,
+        100% {
+          bottom: 0.1rem;
+        }
       }
     `}</style>
   </div>
