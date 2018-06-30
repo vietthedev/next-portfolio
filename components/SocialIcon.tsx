@@ -1,21 +1,17 @@
-import ReactSVG from "react-svg";
+import { Component, ReactNode } from "react";
 
-import { Component } from "react";
 import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
 
 interface ISocialIconProps {
   link: string;
-  icon: string;
+  title: string;
+  children: ReactNode;
 }
 
 const scoped = resolveScopedStyles(
   <div>
     <style jsx>{`
-      div {
-        display: inline-block;
-      }
-
       svg {
         cursor: pointer;
         height: auto;
@@ -50,7 +46,6 @@ export default class SocialIcon extends Component {
     super(props);
 
     this.renderSocialIcon = this.renderSocialIcon.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   public render() {
@@ -60,18 +55,19 @@ export default class SocialIcon extends Component {
   private renderSocialIcon(themeName: string) {
     return (
       <li className={scoped.className}>
-        <ReactSVG
-          className={scoped.className}
-          svgClassName={`${scoped.className} ${themeName}`}
-          path={this.props.icon}
-          onClick={this.handleClick}
-        />
-        {scoped.styles}
+        <a title={this.props.title} target="_blank" href={this.props.link}>
+          <svg
+            className={`${scoped.className} ${themeName}`}
+            role="img"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>{this.props.title}</title>
+            {this.props.children}
+          </svg>
+          {scoped.styles}
+        </a>
       </li>
     );
-  }
-
-  private handleClick() {
-    window.open(this.props.link, "_blank");
   }
 }
