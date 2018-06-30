@@ -4,18 +4,18 @@ import { Component } from "react";
 
 import { getCanonicalUrl } from "../common/helpers";
 
-interface IIndexProps {
+interface ISkillsProps {
   canonicalUrl: string;
 }
 
-export default class Index extends Component {
+export default class Skills extends Component {
   public static async getInitialProps(ctx: NextContext) {
     return { canonicalUrl: getCanonicalUrl(ctx.pathname) };
   }
 
-  public props: IIndexProps;
+  public props: ISkillsProps;
 
-  constructor(props: IIndexProps) {
+  constructor(props: ISkillsProps) {
     super(props);
   }
 
@@ -26,7 +26,7 @@ export default class Index extends Component {
           <link rel="canonical" href={this.props.canonicalUrl} />
           <meta property="og:url" content={this.props.canonicalUrl} />
         </Head>
-        <p>About</p>
+        <p>Skills</p>
       </>
     );
   }
