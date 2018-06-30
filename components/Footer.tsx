@@ -32,8 +32,8 @@ const scoped = resolveScopedStyles(
 );
 
 export default () => (
-  <ThemedComponent
-    render={themeName => (
+  <ThemedComponent>
+    {themeName => (
       <>
         <footer className={`${scoped.className} ${themeName}`}>
           <Social />
@@ -42,5 +42,5 @@ export default () => (
         {scoped.styles}
       </>
     )}
-  />
+  </ThemedComponent>
 );

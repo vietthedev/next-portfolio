@@ -37,8 +37,8 @@ const scoped = resolveScopedStyles(
 );
 
 export default (props: ILayoutProps) => (
-  <ThemedComponent
-    render={themeName => (
+  <ThemedComponent>
+    {themeName => (
       <>
         <div className={`${scoped.className} ${themeName}`}>
           <Header />
@@ -49,5 +49,5 @@ export default (props: ILayoutProps) => (
         {scoped.styles}
       </>
     )}
-  />
+  </ThemedComponent>
 );

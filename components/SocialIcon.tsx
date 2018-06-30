@@ -1,6 +1,6 @@
 import ReactSVG from "react-svg";
 
-import { PureComponent } from "react";
+import { Component } from "react";
 import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
 
@@ -43,7 +43,7 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default class SocialIcon extends PureComponent {
+export default class SocialIcon extends Component {
   public props: ISocialIconProps;
 
   constructor(props: ISocialIconProps) {
@@ -54,8 +54,8 @@ export default class SocialIcon extends PureComponent {
 
   public render() {
     return (
-      <ThemedComponent
-        render={themeName => (
+      <ThemedComponent>
+        {themeName => (
           <li className={scoped.className}>
             <ReactSVG
               className={scoped.className}
@@ -66,7 +66,7 @@ export default class SocialIcon extends PureComponent {
             {scoped.styles}
           </li>
         )}
-      />
+      </ThemedComponent>
     );
   }
 

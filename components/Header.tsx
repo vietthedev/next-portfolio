@@ -42,8 +42,8 @@ const scoped = resolveScopedStyles(
 );
 
 export default () => (
-  <ThemedComponent
-    render={themeName => (
+  <ThemedComponent>
+    {themeName => (
       <>
         <header className={`${scoped.className} ${themeName}`}>
           <img
@@ -55,5 +55,5 @@ export default () => (
         {scoped.styles}
       </>
     )}
-  />
+  </ThemedComponent>
 );

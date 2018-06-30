@@ -30,8 +30,8 @@ const scoped = resolveScopedStyles(
 );
 
 export default (props: IContentProps) => (
-  <ThemedComponent
-    render={themeName => (
+  <ThemedComponent>
+    {themeName => (
       <>
         <main className={`${scoped.className} ${themeName}`}>
           {props.children}
@@ -39,5 +39,5 @@ export default (props: IContentProps) => (
         {scoped.styles}
       </>
     )}
-  />
+  </ThemedComponent>
 );

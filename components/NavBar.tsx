@@ -12,12 +12,12 @@ const scoped = resolveScopedStyles(
 );
 
 export default () => (
-  <ThemedComponent
-    render={themeName => (
+  <ThemedComponent>
+    {themeName => (
       <>
         <nav className={`${scoped.className} ${themeName}`}>Navigation bar</nav>
         {scoped.styles}
       </>
     )}
-  />
+  </ThemedComponent>
 );

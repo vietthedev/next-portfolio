@@ -52,8 +52,8 @@ const scoped = resolveScopedStyles(
 );
 
 export default (props: IThemeTogglerButtonProps) => (
-  <ThemedComponent
-    render={themeName => (
+  <ThemedComponent>
+    {themeName => (
       <>
         <button
           className={`${scoped.className} ${themeName}`}
@@ -64,5 +64,5 @@ export default (props: IThemeTogglerButtonProps) => (
         {scoped.styles}
       </>
     )}
-  />
+  </ThemedComponent>
 );
