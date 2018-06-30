@@ -18,6 +18,7 @@ const scoped = resolveScopedStyles(
       }
 
       img {
+        height: 12rem;
         width: 12rem;
 
         border: 6px double;
