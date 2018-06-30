@@ -3,6 +3,9 @@ export const THEMES = {
   LIGHT: "light"
 };
 export const DEFAULT_THEME = THEMES.LIGHT;
+
+export const apiPath = "/api/v1";
+
 export enum IMAGE_MIME_TYPE {
   JPEG = "image/jpeg",
   PNG = "image/png"
