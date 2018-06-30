@@ -1,3 +1,5 @@
+import { Component } from "react";
+
 import { THEMES } from "../common/constants";
 import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
@@ -51,18 +53,30 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default (props: IThemeTogglerButtonProps) => (
-  <ThemedComponent>
-    {themeName => (
+export default class ThemeTogglerButton extends Component {
+  public props: IThemeTogglerButtonProps;
+
+  constructor(props: IThemeTogglerButtonProps) {
+    super(props);
+
+    this.renderThemeTogglerButton = this.renderThemeTogglerButton.bind(this);
+  }
+
+  public render() {
+    return <ThemedComponent>{this.renderThemeTogglerButton}</ThemedComponent>;
+  }
+
+  private renderThemeTogglerButton(themeName: string) {
+    return (
       <>
         <button
           className={`${scoped.className} ${themeName}`}
-          onClick={props.toggleTheme}
+          onClick={this.props.toggleTheme}
         >
           {themeName === THEMES.LIGHT ? "Dark Mode" : "Light Mode"}
         </button>
         {scoped.styles}
       </>
-    )}
-  </ThemedComponent>
-);
+    );
+  }
+}
