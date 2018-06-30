@@ -1,8 +1,11 @@
-import { Component } from "react";
+import { PureComponent } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
-import ThemedComponent from "../common/themed-component";
 import NavBarItem from "./NavBarItem";
+
+interface INavBarProps {
+  theme: string;
+}
 
 const scoped = resolveScopedStyles(
   <div>
@@ -17,20 +20,26 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default class NavBar extends Component {
-  public render() {
-    return <ThemedComponent>{this.renderNavBar}</ThemedComponent>;
-  }
+export default class NavBar extends PureComponent {
+  public props: INavBarProps;
 
-  private renderNavBar(themeName: string) {
+  public render() {
     return (
       <>
-        <nav className={`${scoped.className} ${themeName}`}>
+        <nav className={`${scoped.className} ${this.props.theme}`}>
           <ul>
-            <NavBarItem href="/">About</NavBarItem>
-            <NavBarItem href="/skills">Skills</NavBarItem>
-            <NavBarItem href="/projects">Projects</NavBarItem>
-            <NavBarItem href="/contact">Contact</NavBarItem>
+            <NavBarItem theme={this.props.theme} href="/">
+              About
+            </NavBarItem>
+            <NavBarItem theme={this.props.theme} href="/skills">
+              Skills
+            </NavBarItem>
+            <NavBarItem theme={this.props.theme} href="/projects">
+              Projects
+            </NavBarItem>
+            <NavBarItem theme={this.props.theme} href="/contact">
+              Contact
+            </NavBarItem>
           </ul>
         </nav>
         {scoped.styles}

@@ -6,6 +6,7 @@ import { getCanonicalUrl } from "../common/helpers";
 import Layout from "../components/Layout";
 
 interface ISkillsProps {
+  theme: string;
   canonicalUrl: string;
 }
 
@@ -22,7 +23,7 @@ export default class Skills extends Component {
 
   public render() {
     return (
-      <Layout>
+      <Layout theme={this.props.theme}>
         <Head>
           <link rel="canonical" href={this.props.canonicalUrl} />
           <meta property="og:url" content={this.props.canonicalUrl} />

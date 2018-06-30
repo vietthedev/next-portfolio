@@ -1,9 +1,9 @@
-import { Component, ReactNode } from "react";
+import { PureComponent, ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
-import ThemedComponent from "../common/themed-component";
 
 interface ISocialIconProps {
+  theme: string;
   link: string;
   title: string;
   children: ReactNode;
@@ -39,25 +39,19 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default class SocialIcon extends Component {
+export default class SocialIcon extends PureComponent {
   public props: ISocialIconProps;
 
   constructor(props: ISocialIconProps) {
     super(props);
-
-    this.renderSocialIcon = this.renderSocialIcon.bind(this);
   }
 
   public render() {
-    return <ThemedComponent>{this.renderSocialIcon}</ThemedComponent>;
-  }
-
-  private renderSocialIcon(themeName: string) {
     return (
       <li className={scoped.className}>
         <a title={this.props.title} target="_blank" href={this.props.link}>
           <svg
-            className={`${scoped.className} ${themeName}`}
+            className={`${scoped.className} ${this.props.theme}`}
             role="img"
             viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"

@@ -1,7 +1,10 @@
-import { Component } from "react";
+import { PureComponent } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
-import ThemedComponent from "../common/themed-component";
+
+interface IHeaderProps {
+  theme: string;
+}
 
 const scoped = resolveScopedStyles(
   <div>
@@ -43,15 +46,13 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default class Header extends Component {
-  public render() {
-    return <ThemedComponent>{this.renderHeader}</ThemedComponent>;
-  }
+export default class Header extends PureComponent {
+  public props: IHeaderProps;
 
-  private renderHeader(themeName: string) {
+  public render() {
     return (
       <>
-        <header className={`${scoped.className} ${themeName}`}>
+        <header className={`${scoped.className} ${this.props.theme}`}>
           <img
             className={scoped.className}
             src="/static/img/avatar.png"

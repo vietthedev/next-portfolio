@@ -2,9 +2,9 @@ import Link from "next/link";
 import { ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
-import ThemedComponent from "../common/themed-component";
 
 interface INavBarItemProps {
+  theme: string;
   href: string;
   children: ReactNode;
 }
@@ -56,18 +56,12 @@ const scoped = resolveScopedStyles(
 );
 
 export default (props: INavBarItemProps) => (
-  <ThemedComponent>
-    {themeName => (
-      <>
-        <li className={scoped.className}>
-          <Link href={props.href} prefetch>
-            <a className={`${scoped.className} ${themeName}`}>
-              {props.children}
-            </a>
-          </Link>
-        </li>
-        {scoped.styles}
-      </>
-    )}
-  </ThemedComponent>
+  <>
+    <li className={scoped.className}>
+      <Link href={props.href} prefetch>
+        <a className={`${scoped.className} ${props.theme}`}>{props.children}</a>
+      </Link>
+    </li>
+    {scoped.styles}
+  </>
 );
