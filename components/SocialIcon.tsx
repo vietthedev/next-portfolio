@@ -65,8 +65,8 @@ export default class SocialIcon extends Component {
             <title>{this.props.title}</title>
             {this.props.children}
           </svg>
-          {scoped.styles}
         </a>
+        {scoped.styles}
       </li>
     );
   }
