@@ -10,5 +10,5 @@ export const resolveScopedStyles = (scope: {
 };
 
 export const getCanonicalUrl = (pathname: string) => {
-  return HOST + pathname;
+  return (HOST || window.location.origin) + pathname;
 };

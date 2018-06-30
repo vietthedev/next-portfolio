@@ -9,7 +9,6 @@ import { SITE_TITLE } from "../common/constants";
 import { DEFAULT_THEME, THEMES } from "../common/constants";
 
 import Context from "../common/context";
-import Layout from "../components/Layout";
 import ThemeTogglerButton from "../components/ThemeTogglerButton";
 
 interface ICustomAppProps {
@@ -31,7 +30,9 @@ export default class CustomApp extends App {
     Component,
     ctx
   }: {
-    Component: React.ComponentType<any> & NextStatelessComponent;
+    Component:
+      | (React.ComponentType<any> & NextStatelessComponent<{}>)
+      | (React.StatelessComponent<any> & NextStatelessComponent<{}>);
     ctx: NextContext;
   }) {
     let pageProps = {};
@@ -57,6 +58,7 @@ export default class CustomApp extends App {
     this.state = {
       theme: props.theme
     };
+    console.log(props.theme);
 
     this.toggleTheme = this.toggleTheme.bind(this);
   }
@@ -70,9 +72,7 @@ export default class CustomApp extends App {
           <title>{SITE_TITLE}</title>
         </Head>
         <Context.Provider value={this.state}>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          <Component {...pageProps} />
           <ThemeTogglerButton toggleTheme={this.toggleTheme} />
         </Context.Provider>
       </Container>
