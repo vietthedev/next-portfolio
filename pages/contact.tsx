@@ -1,6 +1,6 @@
 import { NextContext } from "next";
 import Head from "next/head";
-import { Component } from "react";
+import { PureComponent } from "react";
 
 import { getCanonicalUrl } from "../common/helpers";
 import Layout from "../components/Layout";
@@ -10,7 +10,7 @@ interface IContactProps {
   canonicalUrl: string;
 }
 
-export default class Contact extends Component {
+export default class Contact extends PureComponent {
   public static async getInitialProps(ctx: NextContext) {
     return { canonicalUrl: getCanonicalUrl(ctx.pathname) };
   }
