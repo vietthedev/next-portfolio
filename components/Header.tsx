@@ -1,3 +1,5 @@
+import { Component } from "react";
+
 import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
 
@@ -41,9 +43,13 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default () => (
-  <ThemedComponent>
-    {themeName => (
+export default class Header extends Component {
+  public render() {
+    return <ThemedComponent>{this.renderHeader}</ThemedComponent>;
+  }
+
+  private renderHeader(themeName: string) {
+    return (
       <>
         <header className={`${scoped.className} ${themeName}`}>
           <img
@@ -54,6 +60,6 @@ export default () => (
         </header>
         {scoped.styles}
       </>
-    )}
-  </ThemedComponent>
-);
+    );
+  }
+}

@@ -1,3 +1,5 @@
+import { Component } from "react";
+
 import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
 
@@ -31,9 +33,13 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default () => (
-  <ThemedComponent>
-    {themeName => (
+export default class Footer extends Component {
+  public render() {
+    return <ThemedComponent>{this.renderFooter}</ThemedComponent>;
+  }
+
+  private renderFooter(themeName: string) {
+    return (
       <>
         <footer className={`${scoped.className} ${themeName}`}>
           <Social />
@@ -41,6 +47,6 @@ export default () => (
         </footer>
         {scoped.styles}
       </>
-    )}
-  </ThemedComponent>
-);
+    );
+  }
+}

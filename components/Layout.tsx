@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Component, ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
@@ -36,18 +36,30 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default (props: ILayoutProps) => (
-  <ThemedComponent>
-    {themeName => (
+export default class Layout extends Component {
+  public props: ILayoutProps;
+
+  constructor(props: ILayoutProps) {
+    super(props);
+
+    this.renderLayout = this.renderLayout.bind(this);
+  }
+
+  public render() {
+    return <ThemedComponent>{this.renderLayout}</ThemedComponent>;
+  }
+
+  private renderLayout(themeName: string) {
+    return (
       <>
         <div className={`${scoped.className} ${themeName}`}>
           <Header />
           <NavBar />
-          <Content>{props.children}</Content>
+          <Content>{this.props.children}</Content>
           <Footer />
         </div>
         {scoped.styles}
       </>
-    )}
-  </ThemedComponent>
-);
+    );
+  }
+}

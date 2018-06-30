@@ -49,24 +49,25 @@ export default class SocialIcon extends Component {
   constructor(props: ISocialIconProps) {
     super(props);
 
+    this.renderSocialIcon = this.renderSocialIcon.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   public render() {
+    return <ThemedComponent>{this.renderSocialIcon}</ThemedComponent>;
+  }
+
+  private renderSocialIcon(themeName: string) {
     return (
-      <ThemedComponent>
-        {themeName => (
-          <li className={scoped.className}>
-            <ReactSVG
-              className={scoped.className}
-              svgClassName={`${scoped.className} ${themeName}`}
-              path={this.props.icon}
-              onClick={this.handleClick}
-            />
-            {scoped.styles}
-          </li>
-        )}
-      </ThemedComponent>
+      <li className={scoped.className}>
+        <ReactSVG
+          className={scoped.className}
+          svgClassName={`${scoped.className} ${themeName}`}
+          path={this.props.icon}
+          onClick={this.handleClick}
+        />
+        {scoped.styles}
+      </li>
     );
   }
 

@@ -1,3 +1,5 @@
+import { Component } from "react";
+
 import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
 
@@ -11,13 +13,17 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default () => (
-  <ThemedComponent>
-    {themeName => (
+export default class NavBar extends Component {
+  public render() {
+    return <ThemedComponent>{this.renderNavBar}</ThemedComponent>;
+  }
+
+  private renderNavBar(themeName: string) {
+    return (
       <>
         <nav className={`${scoped.className} ${themeName}`}>Navigation bar</nav>
         {scoped.styles}
       </>
-    )}
-  </ThemedComponent>
-);
+    );
+  }
+}

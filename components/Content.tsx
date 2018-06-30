@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Component, ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
 import ThemedComponent from "../common/themed-component";
@@ -29,15 +29,27 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default (props: IContentProps) => (
-  <ThemedComponent>
-    {themeName => (
+export default class Content extends Component {
+  public props: IContentProps;
+
+  constructor(props: IContentProps) {
+    super(props);
+
+    this.renderContent = this.renderContent.bind(this);
+  }
+
+  public render() {
+    return <ThemedComponent>{this.renderContent}</ThemedComponent>;
+  }
+
+  private renderContent(themeName: string) {
+    return (
       <>
         <main className={`${scoped.className} ${themeName}`}>
-          {props.children}
+          {this.props.children}
         </main>
         {scoped.styles}
       </>
-    )}
-  </ThemedComponent>
-);
+    );
+  }
+}
