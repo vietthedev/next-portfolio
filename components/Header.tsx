@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { PureComponent } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
@@ -18,6 +19,8 @@ const scoped = resolveScopedStyles(
       }
 
       img {
+        cursor: pointer;
+
         height: 12rem;
         width: 12rem;
 
@@ -54,11 +57,13 @@ export default class Header extends PureComponent {
     return (
       <>
         <header className={`${scoped.className} ${this.props.theme}`}>
-          <img
-            className={scoped.className}
-            src="/static/img/avatar.png"
-            alt="Việt Huỳnh"
-          />
+          <Link href="/">
+            <img
+              className={scoped.className}
+              src="/static/img/avatar.png"
+              alt="Việt Huỳnh"
+            />
+          </Link>
         </header>
         {scoped.styles}
       </>
