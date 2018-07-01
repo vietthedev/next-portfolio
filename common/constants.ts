@@ -6,6 +6,15 @@ export const DEFAULT_THEME = THEMES.LIGHT;
 
 export const apiPath = "/api/v1";
 
+/** See SkillType enum */
+export const SKILL_TYPE_DISPLAY = [
+  "Languages",
+  "Libraries/Framework",
+  "Database",
+  "Other"
+];
+
+/** meta tags */
 export enum IMAGE_MIME_TYPE {
   JPEG = "image/jpeg",
   PNG = "image/png"
@@ -34,3 +43,5 @@ export const TWITTER_CARD = {
   TYPE: "summary_large_image",
   USERNAME: "@S_a_l_a_d"
 };
+
+/** End meta tags */

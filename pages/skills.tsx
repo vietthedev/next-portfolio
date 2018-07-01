@@ -5,16 +5,15 @@ import { PureComponent } from "react";
 
 import { getCanonicalUrl } from "../common/helpers";
 import Layout from "../components/Layout";
+import SkillSection from "../components/SkillSection";
+import SkillViewModel from "../models/SkillViewModel";
 
 import { apiPath } from "../common/constants";
 
 interface ISkillsProps {
   theme: string;
   canonicalUrl: string;
-  skills: Array<{
-    name: string;
-    type: string;
-  }>;
+  skills: SkillViewModel[];
 }
 
 export default class Skills extends PureComponent {
@@ -39,6 +38,8 @@ export default class Skills extends PureComponent {
 
   constructor(props: ISkillsProps) {
     super(props);
+
+    this.state = { jsxElement: <p>Sorry. Nothing to show</p> };
   }
 
   public render() {
@@ -48,7 +49,7 @@ export default class Skills extends PureComponent {
           <link rel="canonical" href={this.props.canonicalUrl} />
           <meta property="og:url" content={this.props.canonicalUrl} />
         </Head>
-        <p>Skills</p>
+        <SkillSection skills={this.props.skills} />
       </Layout>
     );
   }
