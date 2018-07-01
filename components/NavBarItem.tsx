@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { withRouter, WithRouterProps } from "next/router";
-import { ReactNode } from "react";
+import { PureComponent, ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
 
@@ -52,21 +52,31 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-const NavBarItem = (props: INavBarItemProps & WithRouterProps) => (
-  <>
-    <li className={scoped.className}>
-      <Link href={props.href} prefetch>
-        <a
-          className={`${scoped.className} ${props.theme} ${
-            props.router.pathname === props.href ? "active" : ""
-          }`}
-        >
-          {props.children}
-        </a>
-      </Link>
-    </li>
-    {scoped.styles}
-  </>
-);
+class NavBarItem extends PureComponent {
+  public props: WithRouterProps & INavBarItemProps;
+
+  constructor(props: WithRouterProps & INavBarItemProps) {
+    super(props);
+  }
+
+  public render() {
+    return (
+      <>
+        <li className={scoped.className}>
+          <Link href={this.props.href} prefetch>
+            <a
+              className={`${scoped.className} ${this.props.theme} ${
+                this.props.router.pathname === this.props.href ? "active" : ""
+              }`}
+            >
+              {this.props.children}
+            </a>
+          </Link>
+        </li>
+        {scoped.styles}
+      </>
+    );
+  }
+}
 
 export default withRouter(NavBarItem);
