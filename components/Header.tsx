@@ -12,6 +12,8 @@ const scoped = resolveScopedStyles(
     <style jsx>{`
       header {
         display: flex;
+
+        flex-shrink: 0;
         align-items: center;
         justify-content: center;
 

@@ -92,19 +92,24 @@ export default class CustomDocument extends Document {
               box-sizing: border-box;
             }
 
-            html,
-            body {
-              height: 100%;
+            html {
+              display: flex;
+
+              min-height: 100%;
             }
 
             body {
+              flex: 1;
+
               font-family: Monaco, Consolas, Courier New, monospace;
               margin: 0;
               padding: 0;
             }
 
             #__next {
-              height: 100%;
+              display: flex;
+
+              min-height: 100%;
             }
           `}</style>
         </Head>
