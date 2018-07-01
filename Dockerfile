@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM mhart/alpine-node
 ENV NODE_ENV production
 WORKDIR /usr/src/app
 COPY ["package.json", "package-lock.json*", "./"]
