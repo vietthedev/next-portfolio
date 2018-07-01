@@ -22,6 +22,7 @@ const scoped = resolveScopedStyles(
       }
 
       a {
+        font-size: 0.8rem;
         text-decoration: none;
 
         padding: 0.5rem;
@@ -47,6 +48,12 @@ const scoped = resolveScopedStyles(
       .dark {
         background-color: #474747;
         color: #dfdfdf;
+      }
+
+      @media only screen and (min-width: 768px) {
+        a {
+          font-size: 1rem;
+        }
       }
     `}</style>
   </div>
