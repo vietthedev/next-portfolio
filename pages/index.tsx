@@ -19,15 +19,14 @@ interface IIndexProps {
 
 export default class Index extends PureComponent {
   public static async getInitialProps(ctx: NextContext) {
-    const fullApiPath =
+    const apiUrl =
       typeof window === "undefined"
-        ? `${process.env.HOST}${process.env.API_PATH}/about`
+        ? `${process.env.HOST + process.env.API_PATH}/about`
         : `${apiPath}/about`;
     let aboutEntries = {};
 
     try {
-      const res = await fetch(fullApiPath);
-
+      const res = await fetch(apiUrl);
       aboutEntries = await res.json();
     } catch (err) {
       console.error(err);
