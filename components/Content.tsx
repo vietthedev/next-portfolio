@@ -13,8 +13,8 @@ const scoped = resolveScopedStyles(
       main {
         flex: 1 0 auto;
 
-        margin: 0 10% 0 10%;
-        padding: 0.25rem 1rem 1rem 1rem;
+        margin: 0.25rem 10% 0 10%;
+        padding: 1rem;
 
         border-radius: 1rem 1rem 0 0;
 
