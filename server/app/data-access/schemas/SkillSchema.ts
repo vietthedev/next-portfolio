@@ -14,12 +14,6 @@ class SkillSchema {
           required: true,
           type: String
         },
-        rating: {
-          max: 5,
-          min: 0,
-          required: true,
-          type: Number
-        },
         type: {
           enum: Object.keys(SkillType),
           required: true,
