@@ -9,8 +9,8 @@ export const apiPath = "/api/v1";
 /** See SkillType enum */
 export const SKILL_TYPE_DISPLAY = [
   "Languages",
-  "Libraries/Framework",
-  "Database",
+  "Libraries/Frameworks",
+  "Database Management Systems",
   "Other"
 ];
 

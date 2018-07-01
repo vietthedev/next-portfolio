@@ -1,6 +1,6 @@
 export enum SkillType {
   Language,
   LibraryFramework,
-  Database,
+  DatabaseManagementSystem,
   Other
 }
