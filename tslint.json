@@ -4,6 +4,7 @@
     "exclude": ["node_modules/**/*"]
   },
   "rules": {
-    "no-console": false
+    "no-console": false,
+    "variable-name": [true, "check-format", "allow-leading-underscore"]
   }
 }
