@@ -62,14 +62,14 @@ export default class SkillSection extends PureComponent {
 
     skills.forEach(skill => {
       if (skillSets.hasOwnProperty(skill.type)) {
-        skillSets[skill.type].push(<li>{skill.name}</li>);
+        skillSets[skill.type].push(<li key={skill._id}>{skill.name}</li>);
       } else {
-        skillSets[skill.type] = [<li>{skill.name}</li>];
+        skillSets[skill.type] = [<li key={skill._id}>{skill.name}</li>];
       }
     });
 
     return Object.keys(skillSets).map(type => (
-      <SkillSet>
+      <SkillSet key={SKILL_TYPE_DISPLAY[parseInt(type, 10)]}>
         <h5>{SKILL_TYPE_DISPLAY[parseInt(type, 10)]}</h5>
         <ul>{skillSets[type]}</ul>
       </SkillSet>
