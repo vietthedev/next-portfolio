@@ -11,13 +11,15 @@ const scoped = resolveScopedStyles(
   <div>
     <style jsx>{`
       nav {
+        margin-top: 0.5rem;
         padding: 0.25rem 0.25rem 0 0.25rem;
 
         text-align: center;
       }
 
       ul {
-        margin-bottom: 0;
+        margin: 0;
+        padding: 0;
       }
     `}</style>
   </div>
