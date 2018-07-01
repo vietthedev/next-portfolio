@@ -32,11 +32,19 @@ const scoped = resolveScopedStyles(
         transition: all 0.2s ease-in-out;
       }
 
-      a:hover {
+      a.light:hover {
+        background-color: #66d6ff;
+      }
+
+      a.active.light {
+        background-color: #66d6ff;
+      }
+
+      a.dark:hover {
         background-color: #2aa4cf;
       }
 
-      a.active {
+      a.active.dark {
         background-color: #2aa4cf;
       }
 

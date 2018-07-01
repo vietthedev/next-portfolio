@@ -10,7 +10,7 @@ const scoped = resolveScopedStyles(
   <div>
     <style jsx>{`
       div {
-        min-width: 33.33%;
+        min-width: 50%;
 
         flex: 1 0 auto;
       }
