@@ -2,7 +2,7 @@ import { PureComponent } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
 
-import Social from "./Social";
+import SocialSection from "./SocialSection";
 
 interface IFooterProps {
   theme: string;
@@ -43,7 +43,7 @@ export default class Footer extends PureComponent {
     return (
       <>
         <footer className={`${scoped.className} ${this.props.theme}`}>
-          <Social theme={this.props.theme} />
+          <SocialSection theme={this.props.theme} />
           Created by the person you see in the picture (&#x30FB;&#x3C9;&#x30FB;)
         </footer>
         {scoped.styles}

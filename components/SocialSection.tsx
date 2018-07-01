@@ -1,7 +1,7 @@
 import { resolveScopedStyles } from "../common/helpers";
 import SocialIcon from "./SocialIcon";
 
-interface ISocialProps {
+interface ISocialSectionProps {
   theme: string;
 }
 
@@ -15,7 +15,7 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default (props: ISocialProps) => (
+export default (props: ISocialSectionProps) => (
   <div>
     <ul className={scoped.className}>
       <SocialIcon
