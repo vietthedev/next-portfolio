@@ -17,7 +17,7 @@ class SkillSchema {
         type: {
           enum: Object.keys(SkillType),
           required: true,
-          type: String
+          type: Number
         }
       },
       { collection: "skills" }
