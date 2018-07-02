@@ -3,9 +3,10 @@ import { NextContext } from "next";
 import Head from "next/head";
 import { PureComponent } from "react";
 
-import { getCanonicalUrl } from "../common/helpers";
 import Layout from "../components/Layout";
 import SkillSection from "../components/SkillSection";
+
+import { getCanonicalUrl } from "../common/helpers";
 import SkillViewModel from "../models/SkillViewModel";
 
 import { apiPath } from "../common/constants";
