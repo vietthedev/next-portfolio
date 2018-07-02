@@ -37,9 +37,7 @@ export default class SkillSection extends PureComponent {
   }
 
   public componentDidMount() {
-    if (this.props.skills.length) {
-      this.setState({ renderResult: this.renderSkills(this.props.skills) });
-    }
+    this.setState({ renderResult: this.renderSkills(this.props.skills) });
   }
 
   public render() {
