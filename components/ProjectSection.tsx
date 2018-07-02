@@ -1,4 +1,4 @@
-import { PureComponent, ReactNode } from "react";
+import { PureComponent } from "react";
 
 import Project from "./Project";
 
