@@ -1,13 +1,10 @@
-import "isomorphic-unfetch";
-import { NextContext } from "next";
 import Head from "next/head";
 import { PureComponent } from "react";
 
 import Layout from "../components/Layout";
 import ProjectSection from "../components/ProjectSection";
 
-import { apiPath } from "../common/constants";
-import { getCanonicalUrl } from "../common/helpers";
+import { getCanonicalUrl, getDataFromApi } from "../common/helpers";
 import ProjectViewModel from "../models/ProjectViewModel";
 
 interface IProjectsProps {
@@ -17,21 +14,11 @@ interface IProjectsProps {
 }
 
 export default class Projects extends PureComponent {
-  public static async getInitialProps(ctx: NextContext) {
-    const apiUrl =
-      typeof window === "undefined"
-        ? process.env.HOST + process.env.API_PATH + ctx.pathname
-        : apiPath + ctx.pathname;
-    let projects = {};
-
-    try {
-      const res = await fetch(apiUrl);
-      projects = await res.json();
-    } catch (err) {
-      console.error(err);
-    }
-
-    return { canonicalUrl: getCanonicalUrl(ctx.pathname), projects };
+  public static async getInitialProps({ pathname }: { pathname: string }) {
+    return {
+      canonicalUrl: getCanonicalUrl(pathname),
+      projects: await getDataFromApi(pathname)
+    };
   }
 
   public props: IProjectsProps;

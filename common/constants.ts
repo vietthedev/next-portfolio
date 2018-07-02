@@ -4,7 +4,7 @@ export const THEMES = {
 };
 export const DEFAULT_THEME = THEMES.LIGHT;
 
-export const apiPath = "/api/v1";
+export const API_PATH = "/api/v1";
 
 /** See SkillType enum */
 export const SKILL_TYPE_DISPLAY = [

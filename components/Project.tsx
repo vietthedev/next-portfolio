@@ -95,50 +95,42 @@ export default class Project extends PureComponent {
             alt={this.props.project.name}
           />
           <div className={`skill-wrapper ${scoped.className}`}>
-            {this.props.project.skills.map(skill => (
-              <span
-                key={skill}
-                className={`skill ${scoped.className} ${this.props.theme}`}
-              >
-                {skill}
-              </span>
-            ))}
+            {this.renderProjectSkills()}
           </div>
-          {this.props.project.repository ? (
-            <div>
-              <span className={`subtitle ${scoped.className}`}>
-                Repository:
-              </span>{" "}
-              <a
-                className={scoped.className}
-                target="_blank"
-                title={this.props.project.name}
-                href={this.props.project.repository}
-              >
-                {this.props.project.repository}
-              </a>
-            </div>
-          ) : (
-            ""
-          )}
-          {this.props.project.website ? (
-            <div>
-              <span className={`subtitle ${scoped.className}`}>Website:</span>{" "}
-              <a
-                className={scoped.className}
-                target="_blank"
-                title={this.props.project.name}
-                href={this.props.project.website}
-              >
-                {this.props.project.website}
-              </a>
-            </div>
-          ) : (
-            ""
-          )}
+          {this.renderProjectUrl(this.props.project.repository, "Repository:")}
+          {this.renderProjectUrl(this.props.project.website, "Website:")}
         </div>
         {scoped.styles}
       </>
+    );
+  }
+
+  private renderProjectSkills() {
+    return this.props.project.skills.map(skill => (
+      <span
+        key={skill}
+        className={`skill ${scoped.className} ${this.props.theme}`}
+      >
+        {skill}
+      </span>
+    ));
+  }
+
+  private renderProjectUrl(info: string, subtitle: string) {
+    return info ? (
+      <div>
+        <span className={`subtitle ${scoped.className}`}>{subtitle}</span>{" "}
+        <a
+          className={scoped.className}
+          target="_blank"
+          title={this.props.project.name}
+          href={info}
+        >
+          {info}
+        </a>
+      </div>
+    ) : (
+      ""
     );
   }
 }

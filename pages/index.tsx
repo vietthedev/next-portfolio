@@ -1,38 +1,23 @@
-import "isomorphic-unfetch";
-import { NextContext } from "next";
 import Head from "next/head";
 import { PureComponent } from "react";
 
 import Layout from "../components/Layout";
 
-import { apiPath } from "../common/constants";
-import { getCanonicalUrl } from "../common/helpers";
+import { getCanonicalUrl, getDataFromApi } from "../common/helpers";
+import AboutViewModel from "../models/AboutViewModel";
 
 interface IIndexProps {
   theme: string;
   canonicalUrl: string;
-  aboutEntries: Array<{
-    _id: string;
-    content: string;
-  }>;
+  aboutEntries: AboutViewModel[];
 }
 
 export default class Index extends PureComponent {
-  public static async getInitialProps(ctx: NextContext) {
-    const apiUrl =
-      typeof window === "undefined"
-        ? `${process.env.HOST + process.env.API_PATH}/about`
-        : `${apiPath}/about`;
-    let aboutEntries = {};
-
-    try {
-      const res = await fetch(apiUrl);
-      aboutEntries = await res.json();
-    } catch (err) {
-      console.error(err);
-    }
-
-    return { canonicalUrl: getCanonicalUrl(ctx.pathname), aboutEntries };
+  public static async getInitialProps({ pathname }: { pathname: string }) {
+    return {
+      aboutEntries: await getDataFromApi("/about"),
+      canonicalUrl: getCanonicalUrl(pathname)
+    };
   }
 
   public props: IIndexProps;
@@ -48,14 +33,18 @@ export default class Index extends PureComponent {
           <link rel="canonical" href={this.props.canonicalUrl} />
           <meta property="og:url" content={this.props.canonicalUrl} />
         </Head>
-        {Object.keys(this.props.aboutEntries).length ? (
-          this.props.aboutEntries.map(aboutEntry => (
-            <p key={aboutEntry._id}>{aboutEntry.content}</p>
-          ))
-        ) : (
-          <p>Sorry. Nothing to show.</p>
-        )}
+        {this.renderAbout()}
       </Layout>
     );
+  }
+
+  private renderAbout() {
+    if (!Object.keys(this.props.aboutEntries).length) {
+      return <p>Sorry. Nothing to show.</p>;
+    }
+
+    return this.props.aboutEntries.map(aboutEntry => (
+      <p key={aboutEntry._id}>{aboutEntry.content}</p>
+    ));
   }
 }
