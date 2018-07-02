@@ -21,13 +21,12 @@ export default () => (
   <>
     <p>
       You can contact me via{" "}
-      <a className={scoped.className} title="xa.lach" href="skype:xa.lach?chat">
+      <a className={scoped.className} href="skype:xa.lach?chat">
         Skype
       </a>{" "}
       or{" "}
       <a
         className={scoped.className}
-        title="viet.huynhlamquoc@outlook.com"
         href="mailto:viet.huynhlamquoc@outlook.com"
       >
         email
