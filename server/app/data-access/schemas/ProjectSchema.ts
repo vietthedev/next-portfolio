@@ -17,7 +17,6 @@ class ProjectSchema {
           type: String
         },
         repository: {
-          required: true,
           type: String
         },
         skills: {
