@@ -38,8 +38,6 @@ export default class Skills extends PureComponent {
 
   constructor(props: ISkillsProps) {
     super(props);
-
-    this.state = { jsxElement: <p>Sorry. Nothing to show</p> };
   }
 
   public render() {
