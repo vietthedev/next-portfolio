@@ -22,7 +22,7 @@ export enum IMAGE_MIME_TYPE {
 export const HOST = process.env.HOST;
 export const SITE_TITLE = "Việt Huỳnh - Software Developer";
 export const SITE_DESCRIPTION =
-  "This is Việt's portfolio. It includes some of his information, the personal work as well as the skills he possesses.";
+  "Hi! I am Viet, a software developer based in Ho Chi Minh City. My passion lies in web development. I'm always willing to try new stuff and apply them to my work.";
 export const SITE_IMAGE = {
   ALT: "Việt Huỳnh",
   HEIGHT: "1200",
