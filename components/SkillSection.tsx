@@ -1,8 +1,8 @@
 import { PureComponent, ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
-import SkillSet from "../components/SkillSet";
 import SkillViewModel from "../models/SkillViewModel";
+import SkillSet from "./SkillSet";
 
 import { SKILL_TYPE_DISPLAY } from "../common/constants";
 
