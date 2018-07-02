@@ -9,8 +9,7 @@ class ProjectSchema {
   static get schema() {
     return new Schema(
       {
-        imagePath: {
-          required: true,
+        imageName: {
           type: String
         },
         name: {

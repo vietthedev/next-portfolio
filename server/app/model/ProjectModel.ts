@@ -1,4 +1,8 @@
 export default class ProjectModel {
+  get imageName(): string {
+    return this.imageName;
+  }
+
   get name(): string {
     return this.name;
   }
