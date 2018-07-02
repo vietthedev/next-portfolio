@@ -120,12 +120,7 @@ export default class Project extends PureComponent {
     return info ? (
       <div>
         <span className={`subtitle ${scoped.className}`}>{subtitle}</span>{" "}
-        <a
-          className={scoped.className}
-          target="_blank"
-          title={this.props.project.name}
-          href={info}
-        >
+        <a className={scoped.className} target="_blank" href={info}>
           {info}
         </a>
       </div>
