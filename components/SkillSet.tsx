@@ -1,9 +1,10 @@
-import { PureComponent, ReactNode } from "react";
+import { PureComponent } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
 
 interface ISkillSetProps {
-  children: ReactNode;
+  skillType: string;
+  skills: JSX.Element[];
 }
 
 const scoped = resolveScopedStyles(
@@ -28,7 +29,10 @@ export default class SkillSet extends PureComponent {
   public render() {
     return (
       <>
-        <div className={scoped.className}>{this.props.children}</div>
+        <div className={scoped.className}>
+          <h5>{this.props.skillType}</h5>
+          <ul>{this.props.skills}</ul>
+        </div>
         {scoped.styles}
       </>
     );

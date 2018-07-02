@@ -69,10 +69,11 @@ export default class SkillSection extends PureComponent {
     });
 
     return Object.keys(skillSets).map(type => (
-      <SkillSet key={SKILL_TYPE_DISPLAY[parseInt(type, 10)]}>
-        <h5>{SKILL_TYPE_DISPLAY[parseInt(type, 10)]}</h5>
-        <ul>{skillSets[type]}</ul>
-      </SkillSet>
+      <SkillSet
+        key={SKILL_TYPE_DISPLAY[parseInt(type, 10)]}
+        skillType={SKILL_TYPE_DISPLAY[parseInt(type, 10)]}
+        skills={skillSets[type]}
+      />
     ));
   }
 }
