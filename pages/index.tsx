@@ -3,10 +3,10 @@ import { NextContext } from "next";
 import Head from "next/head";
 import { PureComponent } from "react";
 
-import { getCanonicalUrl } from "../common/helpers";
 import Layout from "../components/Layout";
 
 import { apiPath } from "../common/constants";
+import { getCanonicalUrl } from "../common/helpers";
 
 interface IIndexProps {
   theme: string;
