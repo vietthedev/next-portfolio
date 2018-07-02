@@ -1,4 +1,4 @@
-import { PureComponent, ReactNode } from "react";
+import { PureComponent } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
 import SkillViewModel from "../models/SkillViewModel";
@@ -8,10 +8,6 @@ import { SKILL_TYPE_DISPLAY } from "../common/constants";
 
 interface ISkillSectionProps {
   skills: SkillViewModel[];
-}
-
-interface ISkillSectionState {
-  renderResult: ReactNode;
 }
 
 const scoped = resolveScopedStyles(
@@ -28,22 +24,17 @@ const scoped = resolveScopedStyles(
 
 export default class SkillSection extends PureComponent {
   public props: ISkillSectionProps;
-  public state: ISkillSectionState;
 
   constructor(props: ISkillSectionProps) {
     super(props);
-
-    this.state = { renderResult: "" };
-  }
-
-  public componentDidMount() {
-    this.setState({ renderResult: this.renderSkills(this.props.skills) });
   }
 
   public render() {
     return (
       <>
-        <div className={scoped.className}>{this.state.renderResult}</div>
+        <div className={scoped.className}>
+          {this.renderSkills(this.props.skills)}
+        </div>
         {scoped.styles}
       </>
     );
