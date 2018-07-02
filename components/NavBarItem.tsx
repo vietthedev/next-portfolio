@@ -68,6 +68,7 @@ class NavBarItem extends PureComponent {
         <li className={scoped.className}>
           <Link href={this.props.href} prefetch>
             <a
+              role="button"
               className={`${scoped.className} ${this.props.theme} ${
                 this.props.router.pathname === this.props.href ? "active" : ""
               }`}

@@ -44,7 +44,7 @@ export default class Content extends PureComponent {
   public render() {
     return (
       <>
-        <main className={`${scoped.className} ${this.props.theme}`}>
+        <main className={`${scoped.className} ${this.props.theme}`} role="main">
           {this.props.children}
         </main>
         {scoped.styles}
