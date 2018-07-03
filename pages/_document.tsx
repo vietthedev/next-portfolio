@@ -15,6 +15,7 @@ import {
   SITE_TYPE,
   TWITTER_CARD
 } from "../common/constants";
+import { GA_TRACKING_ID } from "../common/constants";
 
 export default class CustomDocument extends Document {
   public static async getInitialProps(ctx: NextDocumentContext) {
@@ -27,6 +28,21 @@ export default class CustomDocument extends Document {
     return (
       <html>
         <Head prefix="og: http://ogp.me/ns# profile: http://ogp.me/ns/profile#">
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}');
+          `
+            }}
+          />
           <link
             rel="apple-touch-icon"
             sizes="180x180"

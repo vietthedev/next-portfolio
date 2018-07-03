@@ -1,3 +1,4 @@
+import Router from "next/router";
 import { PureComponent, ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
@@ -6,10 +7,16 @@ import Footer from "./Footer";
 import Header from "./Header";
 import NavBar from "./NavBar";
 
+import * as gtag from "../common/gtag";
+
 interface ILayoutProps {
   theme: string;
   children: ReactNode;
 }
+
+Router.onRouteChangeComplete = url => {
+  gtag.pageview(url);
+};
 
 const scoped = resolveScopedStyles(
   <div>

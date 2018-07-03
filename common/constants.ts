@@ -45,3 +45,5 @@ export const TWITTER_CARD = {
 };
 
 /** End meta tags */
+
+export const GA_TRACKING_ID = process.env.GA_TRACKING_ID || "UA-9417815-10";
