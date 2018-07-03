@@ -103,6 +103,7 @@ export default class CustomDocument extends Document {
           <meta property="twitter:image" content={SITE_IMAGE.URL} />
           <meta property="twitter:image:alt" content={SITE_IMAGE.ALT} />
           <meta property="twitter:description" content={SITE_DESCRIPTION} />
+          <link rel="stylesheet" href="/static/css/nprogress.css" />
           <style>{`
             * {
               box-sizing: border-box;

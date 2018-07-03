@@ -1,4 +1,5 @@
 import Router from "next/router";
+import NProgress from "nprogress";
 import { PureComponent, ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
@@ -14,8 +15,13 @@ interface ILayoutProps {
   children: ReactNode;
 }
 
+NProgress.configure({ showSpinner: false });
+
+Router.onRouteChangeStart = () => NProgress.start();
+
 Router.onRouteChangeComplete = url => {
   gtag.pageview(url);
+  NProgress.done();
 };
 
 const scoped = resolveScopedStyles(
