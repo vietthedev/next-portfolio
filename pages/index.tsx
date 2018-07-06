@@ -7,6 +7,7 @@ import { getCanonicalUrl, getDataFromApi } from "../common/helpers";
 import AboutViewModel from "../models/AboutViewModel";
 
 interface IIndexProps {
+  theme: string;
   canonicalUrl: string;
   aboutEntries: AboutViewModel[];
 }
@@ -27,7 +28,7 @@ export default class Index extends PureComponent {
 
   public render() {
     return (
-      <Layout>
+      <Layout theme={this.props.theme}>
         <Head>
           <link rel="canonical" href={this.props.canonicalUrl} />
           <meta property="og:url" content={this.props.canonicalUrl} />

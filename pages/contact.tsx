@@ -7,6 +7,7 @@ import Layout from "../components/Layout";
 import { getCanonicalUrl } from "../common/helpers";
 
 interface IContactProps {
+  theme: string;
   canonicalUrl: string;
 }
 
@@ -23,7 +24,7 @@ export default class Contact extends PureComponent {
 
   public render() {
     return (
-      <Layout>
+      <Layout theme={this.props.theme}>
         <Head>
           <link rel="canonical" href={this.props.canonicalUrl} />
           <meta property="og:url" content={this.props.canonicalUrl} />

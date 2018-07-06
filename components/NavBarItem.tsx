@@ -2,10 +2,10 @@ import Link from "next/link";
 import { withRouter, WithRouterProps } from "next/router";
 import { PureComponent, ReactNode } from "react";
 
-import Context from "../common/context";
 import { resolveScopedStyles } from "../common/helpers";
 
 interface INavBarItemProps {
+  theme: string;
   href: string;
   children: ReactNode;
 }
@@ -64,27 +64,21 @@ class NavBarItem extends PureComponent {
 
   public render() {
     return (
-      <Context.Consumer>
-        {theme => (
-          <>
-            <li className={scoped.className}>
-              <Link href={this.props.href} prefetch>
-                <a
-                  role="button"
-                  className={`${scoped.className} ${theme} ${
-                    this.props.router.pathname === this.props.href
-                      ? "active"
-                      : ""
-                  }`}
-                >
-                  {this.props.children}
-                </a>
-              </Link>
-            </li>
-            {scoped.styles}
-          </>
-        )}
-      </Context.Consumer>
+      <>
+        <li className={scoped.className}>
+          <Link href={this.props.href} prefetch>
+            <a
+              role="button"
+              className={`${scoped.className} ${this.props.theme} ${
+                this.props.router.pathname === this.props.href ? "active" : ""
+              }`}
+            >
+              {this.props.children}
+            </a>
+          </Link>
+        </li>
+        {scoped.styles}
+      </>
     );
   }
 }

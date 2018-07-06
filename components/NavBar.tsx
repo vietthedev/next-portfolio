@@ -26,10 +26,18 @@ export default () => (
       <>
         <nav className={`${scoped.className} ${theme}`}>
           <ul className={scoped.className}>
-            <NavBarItem href="/">About</NavBarItem>
-            <NavBarItem href="/skills">Skills</NavBarItem>
-            <NavBarItem href="/projects">Projects</NavBarItem>
-            <NavBarItem href="/contact">Contact</NavBarItem>
+            <NavBarItem theme={theme} href="/">
+              About
+            </NavBarItem>
+            <NavBarItem theme={theme} href="/skills">
+              Skills
+            </NavBarItem>
+            <NavBarItem theme={theme} href="/projects">
+              Projects
+            </NavBarItem>
+            <NavBarItem theme={theme} href="/contact">
+              Contact
+            </NavBarItem>
           </ul>
         </nav>
         {scoped.styles}

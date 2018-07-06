@@ -12,6 +12,7 @@ import NavBar from "./NavBar";
 import * as gtag from "../common/gtag";
 
 interface ILayoutProps {
+  theme: string;
   children: ReactNode;
 }
 
@@ -59,19 +60,17 @@ export default class Layout extends PureComponent {
 
   public render() {
     return (
-      <Context.Consumer>
-        {theme => (
-          <>
-            <div className={`${scoped.className} ${theme}`}>
-              <Header />
-              <NavBar />
-              <Content>{this.props.children}</Content>
-              <Footer />
-            </div>
-            {scoped.styles}
-          </>
-        )}
-      </Context.Consumer>
+      <Context.Provider value={this.props.theme}>
+        <>
+          <div className={`${scoped.className} ${this.props.theme}`}>
+            <Header />
+            <NavBar />
+            <Content>{this.props.children}</Content>
+            <Footer />
+          </div>
+          {scoped.styles}
+        </>
+      </Context.Provider>
     );
   }
 }
