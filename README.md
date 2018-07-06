@@ -1,4 +1,4 @@
-# Next Portfolio &middot; [![Travis CI](https://travis-ci.org/S-a-l-a-d/next-portfolio.svg?branch=master)](https://travis-ci.org/S-a-l-a-d/next-portfolio)
+# Next Portfolio &middot; [![Build Status](https://travis-ci.org/S-a-l-a-d/next-portfolio.svg?branch=master)](https://travis-ci.org/S-a-l-a-d/next-portfolio)
 
 This is my portfolio built with Next.js.
 
