@@ -44,7 +44,7 @@ export default class Content extends Component {
   public render() {
     return (
       <Context.Consumer>
-        {theme => (
+        {({ theme }) => (
           <>
             <main className={`${scoped.className} ${theme}`} role="main">
               {this.props.children}

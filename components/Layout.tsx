@@ -60,7 +60,7 @@ export default class Layout extends PureComponent {
 
   public render() {
     return (
-      <Context.Provider value={this.props.theme}>
+      <Context.Provider value={{ theme: this.props.theme }}>
         <>
           <div className={`${scoped.className} ${this.props.theme}`}>
             <Header />

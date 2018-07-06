@@ -27,7 +27,7 @@ export default class ProjectSection extends PureComponent {
 
     return (
       <Context.Consumer>
-        {theme =>
+        {({ theme }) =>
           projects.map(project => (
             <Project key={project._id} theme={theme} project={project} />
           ))

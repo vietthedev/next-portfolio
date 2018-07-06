@@ -22,7 +22,7 @@ const scoped = resolveScopedStyles(
 
 export default () => (
   <Context.Consumer>
-    {theme => (
+    {({ theme }) => (
       <>
         <nav className={`${scoped.className} ${theme}`}>
           <ul className={scoped.className}>

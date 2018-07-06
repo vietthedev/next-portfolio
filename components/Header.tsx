@@ -50,7 +50,7 @@ const scoped = resolveScopedStyles(
 
 export default () => (
   <Context.Consumer>
-    {theme => (
+    {({ theme }) => (
       <>
         <header className={`${scoped.className} ${theme}`}>
           <Link href="/">

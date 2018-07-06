@@ -14,7 +14,7 @@ const scoped = resolveScopedStyles(
 
 export default () => (
   <Context.Consumer>
-    {theme => (
+    {({ theme }) => (
       <div>
         <ul className={scoped.className}>
           <SocialIcon

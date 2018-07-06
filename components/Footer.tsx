@@ -32,7 +32,7 @@ const scoped = resolveScopedStyles(
 
 export default () => (
   <Context.Consumer>
-    {theme => (
+    {({ theme }) => (
       <>
         <footer className={`${scoped.className} ${theme}`}>
           <SocialSection />
