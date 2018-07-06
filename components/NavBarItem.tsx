@@ -2,10 +2,10 @@ import Link from "next/link";
 import { withRouter, WithRouterProps } from "next/router";
 import { PureComponent, ReactNode } from "react";
 
+import Context from "../common/context";
 import { resolveScopedStyles } from "../common/helpers";
 
 interface INavBarItemProps {
-  theme: string;
   href: string;
   children: ReactNode;
 }
@@ -56,29 +56,35 @@ const scoped = resolveScopedStyles(
 );
 
 class NavBarItem extends PureComponent {
-  public props: WithRouterProps & INavBarItemProps;
+  public props: INavBarItemProps & WithRouterProps;
 
-  constructor(props: WithRouterProps & INavBarItemProps) {
+  constructor(props: INavBarItemProps & WithRouterProps) {
     super(props);
   }
 
   public render() {
     return (
-      <>
-        <li className={scoped.className}>
-          <Link href={this.props.href} prefetch>
-            <a
-              role="button"
-              className={`${scoped.className} ${this.props.theme} ${
-                this.props.router.pathname === this.props.href ? "active" : ""
-              }`}
-            >
-              {this.props.children}
-            </a>
-          </Link>
-        </li>
-        {scoped.styles}
-      </>
+      <Context.Consumer>
+        {theme => (
+          <>
+            <li className={scoped.className}>
+              <Link href={this.props.href} prefetch>
+                <a
+                  role="button"
+                  className={`${scoped.className} ${theme} ${
+                    this.props.router.pathname === this.props.href
+                      ? "active"
+                      : ""
+                  }`}
+                >
+                  {this.props.children}
+                </a>
+              </Link>
+            </li>
+            {scoped.styles}
+          </>
+        )}
+      </Context.Consumer>
     );
   }
 }

@@ -1,9 +1,9 @@
-import { PureComponent, ReactNode } from "react";
+import { Component, ReactNode } from "react";
 
+import Context from "../common/context";
 import { resolveScopedStyles } from "../common/helpers";
 
 interface IContentProps {
-  theme: string;
   children: ReactNode;
 }
 
@@ -34,7 +34,7 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default class Content extends PureComponent {
+export default class Content extends Component {
   public props: IContentProps;
 
   constructor(props: IContentProps) {
@@ -43,12 +43,16 @@ export default class Content extends PureComponent {
 
   public render() {
     return (
-      <>
-        <main className={`${scoped.className} ${this.props.theme}`} role="main">
-          {this.props.children}
-        </main>
-        {scoped.styles}
-      </>
+      <Context.Consumer>
+        {theme => (
+          <>
+            <main className={`${scoped.className} ${theme}`} role="main">
+              {this.props.children}
+            </main>
+            {scoped.styles}
+          </>
+        )}
+      </Context.Consumer>
     );
   }
 }

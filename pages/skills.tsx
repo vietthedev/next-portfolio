@@ -8,7 +8,6 @@ import { getCanonicalUrl, getDataFromApi } from "../common/helpers";
 import SkillViewModel from "../models/SkillViewModel";
 
 interface ISkillsProps {
-  theme: string;
   canonicalUrl: string;
   skills: SkillViewModel[];
 }
@@ -29,7 +28,7 @@ export default class Skills extends PureComponent {
 
   public render() {
     return (
-      <Layout theme={this.props.theme}>
+      <Layout>
         <Head>
           <link rel="canonical" href={this.props.canonicalUrl} />
           <meta property="og:url" content={this.props.canonicalUrl} />

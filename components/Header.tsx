@@ -1,11 +1,7 @@
 import Link from "next/link";
-import { PureComponent } from "react";
 
+import Context from "../common/context";
 import { resolveScopedStyles } from "../common/helpers";
-
-interface IHeaderProps {
-  theme: string;
-}
 
 const scoped = resolveScopedStyles(
   <div>
@@ -52,13 +48,11 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default class Header extends PureComponent {
-  public props: IHeaderProps;
-
-  public render() {
-    return (
+export default () => (
+  <Context.Consumer>
+    {theme => (
       <>
-        <header className={`${scoped.className} ${this.props.theme}`}>
+        <header className={`${scoped.className} ${theme}`}>
           <Link href="/">
             <img
               className={scoped.className}
@@ -69,6 +63,6 @@ export default class Header extends PureComponent {
         </header>
         {scoped.styles}
       </>
-    );
-  }
-}
+    )}
+  </Context.Consumer>
+);

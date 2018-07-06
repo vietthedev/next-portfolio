@@ -1,11 +1,6 @@
-import { PureComponent } from "react";
-
+import Context from "../common/context";
 import { resolveScopedStyles } from "../common/helpers";
 import NavBarItem from "./NavBarItem";
-
-interface INavBarProps {
-  theme: string;
-}
 
 const scoped = resolveScopedStyles(
   <div>
@@ -25,30 +20,20 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default class NavBar extends PureComponent {
-  public props: INavBarProps;
-
-  public render() {
-    return (
+export default () => (
+  <Context.Consumer>
+    {theme => (
       <>
-        <nav className={`${scoped.className} ${this.props.theme}`}>
+        <nav className={`${scoped.className} ${theme}`}>
           <ul className={scoped.className}>
-            <NavBarItem theme={this.props.theme} href="/">
-              About
-            </NavBarItem>
-            <NavBarItem theme={this.props.theme} href="/skills">
-              Skills
-            </NavBarItem>
-            <NavBarItem theme={this.props.theme} href="/projects">
-              Projects
-            </NavBarItem>
-            <NavBarItem theme={this.props.theme} href="/contact">
-              Contact
-            </NavBarItem>
+            <NavBarItem href="/">About</NavBarItem>
+            <NavBarItem href="/skills">Skills</NavBarItem>
+            <NavBarItem href="/projects">Projects</NavBarItem>
+            <NavBarItem href="/contact">Contact</NavBarItem>
           </ul>
         </nav>
         {scoped.styles}
       </>
-    );
-  }
-}
+    )}
+  </Context.Consumer>
+);

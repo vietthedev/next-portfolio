@@ -2,6 +2,7 @@ import Router from "next/router";
 import NProgress from "nprogress";
 import { PureComponent, ReactNode } from "react";
 
+import Context from "../common/context";
 import { resolveScopedStyles } from "../common/helpers";
 import Content from "./Content";
 import Footer from "./Footer";
@@ -11,7 +12,6 @@ import NavBar from "./NavBar";
 import * as gtag from "../common/gtag";
 
 interface ILayoutProps {
-  theme: string;
   children: ReactNode;
 }
 
@@ -59,15 +59,19 @@ export default class Layout extends PureComponent {
 
   public render() {
     return (
-      <>
-        <div className={`${scoped.className} ${this.props.theme}`}>
-          <Header theme={this.props.theme} />
-          <NavBar theme={this.props.theme} />
-          <Content theme={this.props.theme}>{this.props.children}</Content>
-          <Footer theme={this.props.theme} />
-        </div>
-        {scoped.styles}
-      </>
+      <Context.Consumer>
+        {theme => (
+          <>
+            <div className={`${scoped.className} ${theme}`}>
+              <Header />
+              <NavBar />
+              <Content>{this.props.children}</Content>
+              <Footer />
+            </div>
+            {scoped.styles}
+          </>
+        )}
+      </Context.Consumer>
     );
   }
 }

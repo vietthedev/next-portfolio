@@ -1,12 +1,6 @@
-import { PureComponent } from "react";
-
+import Context from "../common/context";
 import { resolveScopedStyles } from "../common/helpers";
-
 import SocialSection from "./SocialSection";
-
-interface IFooterProps {
-  theme: string;
-}
 
 const scoped = resolveScopedStyles(
   <div>
@@ -36,18 +30,16 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default class Footer extends PureComponent {
-  public props: IFooterProps;
-
-  public render() {
-    return (
+export default () => (
+  <Context.Consumer>
+    {theme => (
       <>
-        <footer className={`${scoped.className} ${this.props.theme}`}>
-          <SocialSection theme={this.props.theme} />
+        <footer className={`${scoped.className} ${theme}`}>
+          <SocialSection />
           Created by the person you see in the picture (&#x30FB;&#x3C9;&#x30FB;)
         </footer>
         {scoped.styles}
       </>
-    );
-  }
-}
+    )}
+  </Context.Consumer>
+);

@@ -8,7 +8,6 @@ import { getCanonicalUrl, getDataFromApi } from "../common/helpers";
 import ProjectViewModel from "../models/ProjectViewModel";
 
 interface IProjectsProps {
-  theme: string;
   canonicalUrl: string;
   projects: ProjectViewModel[];
 }
@@ -29,15 +28,12 @@ export default class Projects extends PureComponent {
 
   public render() {
     return (
-      <Layout theme={this.props.theme}>
+      <Layout>
         <Head>
           <link rel="canonical" href={this.props.canonicalUrl} />
           <meta property="og:url" content={this.props.canonicalUrl} />
         </Head>
-        <ProjectSection
-          theme={this.props.theme}
-          projects={this.props.projects}
-        />
+        <ProjectSection projects={this.props.projects} />
       </Layout>
     );
   }

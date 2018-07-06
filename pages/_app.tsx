@@ -8,6 +8,7 @@ import React from "react";
 import { SITE_TITLE } from "../common/constants";
 import { DEFAULT_THEME, THEMES } from "../common/constants";
 
+import Context from "../common/context";
 import ThemeTogglerButton from "../components/ThemeTogglerButton";
 
 interface ICustomAppProps {
@@ -69,11 +70,10 @@ export default class CustomApp extends App {
         <Head>
           <title>{SITE_TITLE}</title>
         </Head>
-        <Component theme={this.state.theme} {...pageProps} />
-        <ThemeTogglerButton
-          theme={this.state.theme}
-          toggleTheme={this.toggleTheme}
-        />
+        <Context.Provider value={this.state.theme}>
+          <Component {...pageProps} />
+          <ThemeTogglerButton toggleTheme={this.toggleTheme} />
+        </Context.Provider>
       </Container>
     );
   }
