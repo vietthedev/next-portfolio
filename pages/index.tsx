@@ -15,7 +15,7 @@ interface IIndexProps {
 export default class Index extends PureComponent {
   public static async getInitialProps({ pathname }: { pathname: string }) {
     return {
-      aboutEntries: await getDataFromApi("/about"),
+      aboutEntries: await getDataFromApi<AboutViewModel>("/about"),
       canonicalUrl: getCanonicalUrl(pathname)
     };
   }

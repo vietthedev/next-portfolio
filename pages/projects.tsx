@@ -17,7 +17,7 @@ export default class Projects extends PureComponent {
   public static async getInitialProps({ pathname }: { pathname: string }) {
     return {
       canonicalUrl: getCanonicalUrl(pathname),
-      projects: await getDataFromApi(pathname)
+      projects: await getDataFromApi<ProjectViewModel>(pathname)
     };
   }
 

@@ -17,7 +17,7 @@ export default class Skills extends PureComponent {
   public static async getInitialProps({ pathname }: { pathname: string }) {
     return {
       canonicalUrl: getCanonicalUrl(pathname),
-      skills: await getDataFromApi(pathname)
+      skills: await getDataFromApi<SkillViewModel>(pathname)
     };
   }
 
