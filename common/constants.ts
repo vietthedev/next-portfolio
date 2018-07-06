@@ -4,7 +4,10 @@ export const THEMES = {
 };
 export const DEFAULT_THEME = THEMES.LIGHT;
 
-export const API_PATH = "/api/v1";
+/** Server-side constants with fail-safes */
+export const HOST = process.env.HOST || window.location.origin;
+export const API_PATH = process.env.API_PATH || "/api/v1";
+export const GA_TRACKING_ID = process.env.GA_TRACKING_ID;
 
 /** See SkillType enum */
 export const SKILL_TYPE_DISPLAY = [
@@ -19,7 +22,6 @@ export enum IMAGE_MIME_TYPE {
   JPEG = "image/jpeg",
   PNG = "image/png"
 }
-export const HOST = process.env.HOST;
 export const SITE_TITLE = "Việt Huỳnh - Software Developer";
 export const SITE_DESCRIPTION =
   "Hi! I am Viet, a software developer based in Ho Chi Minh City. My passion lies in web development. I'm always willing to try new stuff and apply them to my work.";
@@ -43,7 +45,3 @@ export const TWITTER_CARD = {
   TYPE: "summary_large_image",
   USERNAME: "@S_a_l_a_d"
 };
-
-/** End meta tags */
-
-export const GA_TRACKING_ID = process.env.GA_TRACKING_ID || "UA-9417815-10";

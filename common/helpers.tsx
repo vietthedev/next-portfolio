@@ -12,15 +12,15 @@ export const resolveScopedStyles = (scope: {
 };
 
 export const getCanonicalUrl = (pathname: string) => {
-  return (HOST || window.location.origin) + pathname;
+  return HOST + pathname;
 };
 
 export const getDataFromApi = async (pathname: string) => {
   const apiUrl =
     typeof window === "undefined"
-      ? process.env.HOST + process.env.API_PATH + pathname
+      ? HOST + API_PATH + pathname
       : API_PATH + pathname;
-  let data = {};
+  let data = [];
 
   try {
     const res = await fetch(apiUrl);
