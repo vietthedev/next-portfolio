@@ -1,4 +1,4 @@
-import { Component, ReactNode } from "react";
+import { PureComponent, ReactNode } from "react";
 
 import Context from "../common/context";
 import { resolveScopedStyles } from "../common/helpers";
@@ -34,7 +34,7 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-export default class Content extends Component {
+export default class Content extends PureComponent {
   public props: IContentProps;
 
   constructor(props: IContentProps) {
