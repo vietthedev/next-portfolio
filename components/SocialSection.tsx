@@ -7,6 +7,8 @@ const scoped = resolveScopedStyles(
     <style jsx>{`
       ul {
         list-style: none;
+
+        padding: 0;
       }
     `}</style>
   </div>
