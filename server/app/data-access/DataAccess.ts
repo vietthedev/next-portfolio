@@ -24,7 +24,7 @@ class DataAccess {
       process.env.MONGODB_URI,
       {
         pass: process.env.MONGODB_PASS,
-        useNewUrlParser: true,
+        useNewUrlParser: false,
         user: process.env.MONGODB_USER
       }
     );
