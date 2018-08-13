@@ -22,13 +22,17 @@ class DataAccess {
 
     this.mongooseInstance = await mongoose.connect(
       process.env.MONGODB_URI,
-      { user: process.env.MONGODB_USER, pass: process.env.MONGODB_PASS }
+      {
+        pass: process.env.MONGODB_PASS,
+        useNewUrlParser: true,
+        user: process.env.MONGODB_USER
+      }
     );
 
     return this.mongooseInstance;
   }
 }
 
-Promise.resolve(DataAccess.connect());
+DataAccess.connect();
 
 export default DataAccess;
