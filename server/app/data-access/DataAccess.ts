@@ -33,6 +33,6 @@ class DataAccess {
   }
 }
 
-DataAccess.connect();
+(async () => await DataAccess.connect())();
 
 export default DataAccess;
