@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { withRouter, WithRouterProps } from "next/router";
+import { withRouter } from "next/router";
+import { WithRouterProps } from 'next/dist/client/with-router';
 import { PureComponent, ReactNode } from "react";
 
 import { resolveScopedStyles } from "../common/helpers";
@@ -55,9 +56,7 @@ const scoped = resolveScopedStyles(
   </div>
 );
 
-class NavBarItem extends PureComponent {
-  public props: INavBarItemProps & WithRouterProps;
-
+class NavBarItem extends PureComponent<INavBarItemProps & WithRouterProps> {
   constructor(props: INavBarItemProps & WithRouterProps) {
     super(props);
   }

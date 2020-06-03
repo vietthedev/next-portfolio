@@ -14,7 +14,6 @@
     "@types/lusca": "^1.6.1",
     "@types/method-override": "0.0.31",
     "@types/mongoose": "^5.7.21",
-    "@types/next": "^6.1.8",
     "@types/node": "^10.17.24",
     "@types/nprogress": "0.0.29",
     "@types/react": "^16.9.35",

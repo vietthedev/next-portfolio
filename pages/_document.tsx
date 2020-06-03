@@ -1,7 +1,7 @@
 import Document, {
   Head,
   Main,
-  NextDocumentContext,
+  DocumentContext,
   NextScript
 } from "next/document";
 
@@ -18,7 +18,7 @@ import {
 import { GA_TRACKING_ID } from "../common/constants";
 
 export default class CustomDocument extends Document {
-  public static async getInitialProps(ctx: NextDocumentContext) {
+  public static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
 
     return { ...initialProps };

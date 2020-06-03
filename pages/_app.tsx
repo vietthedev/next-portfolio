@@ -1,7 +1,7 @@
 import { IncomingMessage } from "http";
 import Cookies from "js-cookie";
-import { NextContext, NextStatelessComponent } from "next";
-import App, { AppComponentProps } from "next/app";
+import { NextPageContext, NextComponentType } from "next";
+import App from "next/app";
 import Head from "next/head";
 import React from "react";
 
@@ -24,15 +24,15 @@ interface ICustomIncomingMessage extends IncomingMessage {
   };
 }
 
-export default class CustomApp extends App {
+export default class CustomApp extends App<{}> {
   public static async getInitialProps({
     Component,
     ctx
   }: {
     Component:
-      | (React.ComponentType<any> & NextStatelessComponent<{}>)
-      | (React.StatelessComponent<any> & NextStatelessComponent<{}>);
-    ctx: NextContext;
+      | (React.ComponentType<any> & NextComponentType<{}>)
+      | (React.StatelessComponent<any> & NextComponentType<{}>);
+    ctx: NextPageContext;
   }) {
     let pageProps = {};
 
@@ -48,10 +48,9 @@ export default class CustomApp extends App {
     };
   }
 
-  public props: AppComponentProps & ICustomAppProps;
   public state: ICustomAppState;
 
-  constructor(props: AppComponentProps & ICustomAppProps) {
+  constructor(props: ICustomAppProps & any) {
     super(props);
 
     this.state = {
