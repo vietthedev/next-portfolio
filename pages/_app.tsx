@@ -1,7 +1,7 @@
 import { IncomingMessage } from "http";
 import Cookies from "js-cookie";
 import { NextContext, NextStatelessComponent } from "next";
-import App, { AppComponentProps, Container } from "next/app";
+import App, { AppComponentProps } from "next/app";
 import Head from "next/head";
 import React from "react";
 
@@ -65,7 +65,7 @@ export default class CustomApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <Container>
+      <>
         <Head>
           <title>{SITE_TITLE}</title>
         </Head>
@@ -74,7 +74,7 @@ export default class CustomApp extends App {
           theme={this.state.theme}
           toggleTheme={this.toggleTheme}
         />
-      </Container>
+      </>
     );
   }
 
