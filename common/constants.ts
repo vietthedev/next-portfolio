@@ -29,7 +29,7 @@ export const SITE_IMAGE = {
   ALT: "Việt Huỳnh",
   HEIGHT: "1200",
   TYPE: IMAGE_MIME_TYPE.PNG,
-  URL: `${HOST}/static/img/profile_picture.png`,
+  URL: `${HOST}/img/profile_picture.png`,
   WIDTH: "1900"
 };
 export const SITE_NAME = "Việt Huỳnh's Portfolio";

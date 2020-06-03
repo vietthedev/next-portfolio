@@ -46,31 +46,31 @@ export default class CustomDocument extends Document {
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/static/favicons/apple-touch-icon.png"
+            href="/favicons/apple-touch-icon.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/static/favicons/favicon-32x32.png"
+            href="/favicons/favicon-32x32.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="/static/favicons/favicon-16x16.png"
+            href="/favicons/favicon-16x16.png"
           />
-          <link rel="manifest" href="/static/favicons/site.webmanifest" />
+          <link rel="manifest" href="/favicons/site.webmanifest" />
           <link
             rel="mask-icon"
-            href="/static/favicons/safari-pinned-tab.svg"
+            href="/favicons/safari-pinned-tab.svg"
             color="#5bbad5"
           />
-          <link rel="shortcut icon" href="/static/favicons/favicon.ico" />
+          <link rel="shortcut icon" href="/favicons/favicon.ico" />
           <meta name="msapplication-TileColor" content="#2d89ef" />
           <meta
             name="msapplication-config"
-            content="/static/favicons/browserconfig.xml"
+            content="/favicons/browserconfig.xml"
           />
           <meta name="theme-color" content="#ffffff" />
           <meta
@@ -103,7 +103,7 @@ export default class CustomDocument extends Document {
           <meta property="twitter:image" content={SITE_IMAGE.URL} />
           <meta property="twitter:image:alt" content={SITE_IMAGE.ALT} />
           <meta property="twitter:description" content={SITE_DESCRIPTION} />
-          <link rel="stylesheet" href="/static/css/nprogress.css" />
+          <link rel="stylesheet" href="/css/nprogress.css" />
           <style>{`
             * {
               box-sizing: border-box;

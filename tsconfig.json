@@ -6,7 +6,10 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "jsx": "preserve",
-    "lib": ["dom", "es2016"],
+    "lib": [
+      "dom",
+      "es2016"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noImplicitAny": true,
@@ -16,7 +19,19 @@
     "removeComments": false,
     "skipLibCheck": true,
     "sourceMap": true,
-    "target": "es2015"
+    "target": "es2015",
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "exclude": ["server/**/*.ts"]
+  "exclude": [
+    "server/**/*.ts"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

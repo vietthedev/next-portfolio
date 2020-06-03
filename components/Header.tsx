@@ -56,7 +56,7 @@ export default () => (
           <Link href="/">
             <img
               className={scoped.className}
-              src="/static/img/avatar.png"
+              src="/img/avatar.png"
               alt="Việt Huỳnh"
             />
           </Link>

@@ -91,7 +91,7 @@ export default class Project extends PureComponent {
           <h2 className={scoped.className}>{this.props.project.name}</h2>
           <img
             className={scoped.className}
-            src={`/static/img/projects/${this.props.project.imageName}`}
+            src={`/img/projects/${this.props.project.imageName}`}
             alt={this.props.project.name}
           />
           <div className={`skill-wrapper ${scoped.className}`}>

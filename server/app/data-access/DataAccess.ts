@@ -24,7 +24,8 @@ class DataAccess {
       process.env.MONGODB_URI,
       {
         pass: process.env.MONGODB_PASS,
-        useNewUrlParser: false,
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
         user: process.env.MONGODB_USER
       }
     );
