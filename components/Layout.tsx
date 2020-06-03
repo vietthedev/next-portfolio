@@ -18,12 +18,12 @@ interface ILayoutProps {
 
 NProgress.configure({ showSpinner: false });
 
-Router.onRouteChangeStart = () => NProgress.start();
+Router.events.on("routeChangeStart", () => NProgress.start());
 
-Router.onRouteChangeComplete = url => {
+Router.events.on("routeChangeComplete", url => {
   gtag.pageview(url);
   NProgress.done();
-};
+});
 
 const scoped = resolveScopedStyles(
   <div>
